@@ -1,7 +1,4 @@
-## Hi there 👋
-
-
-![Your GitHub stats](https://github-readme-stats.vercel.app/api?username=Alpha-Zero-0&show_icons=true&theme=radical)
+## HIHIHIHIA
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Alpha-Zero-0&layout=compact&langs_count=8)
 
