@@ -3,3 +3,4 @@
 
 ![GitHub Streak](https://streak-stats.demolab.com?user=Alpha-Zero-0&theme=radical)
 
+![Trophies](https://github-profile-trophy.vercel.app/?username=Alpha-Zero-0&theme=radical&margin-w=15)
