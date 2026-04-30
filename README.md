@@ -2,5 +2,3 @@
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Alpha-Zero-0&layout=compact&langs_count=8)
 
 ![GitHub Streak](https://streak-stats.demolab.com?user=Alpha-Zero-0&theme=radical)
-
-![Trophies](https://github-profile-trophy.vercel.app/?username=Alpha-Zero-0&theme=radical&margin-w=15)
