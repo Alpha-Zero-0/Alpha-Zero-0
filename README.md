@@ -1,1 +1,2 @@
-![LeetCode Stats](https://leetcard.jacoblin.cool/HIHIHIHIA?theme=dark&ext=heatmap)
+![LeetCode Activity](https://leetcard.jacoblin.cool/HIHIHIHIA?theme=dark&ext=activity)
+![LeetCode Heatmap](https://leetcard.jacoblin.cool/HIHIHIHIA?theme=dark&ext=heatmap)
