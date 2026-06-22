@@ -1,0 +1,103 @@
+name: Minesweeper Game
+
+on:
+  issue_comment:
+    types: [created, edited]
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Game action (new, show, help)'
+        required: true
+        default: 'show'
+        type: choice
+        options:
+          - new
+          - show
+          - help
+
+jobs:
+  minesweeper:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Parse comment
+        id: parse
+        run: |
+          if [[ "${{ github.event_name }}" == "issue_comment" ]]; then
+            COMMENT="${{ github.event.comment.body }}"
+            echo "comment=$COMMENT" >> $GITHUB_OUTPUT
+          else
+            ACTION="${{ github.event.inputs.action }}"
+            echo "comment=$ACTION" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Process game move
+        id: game
+        run: |
+          cd ${{ github.workspace }}
+          COMMENT="${{ steps.parse.outputs.comment }}"
+          
+          # Extract action and coordinates from comment
+          # Supported formats: "reveal 0 0", "flag 1 2", "new", "show", "help"
+          
+          if [[ "$COMMENT" =~ ^reveal[[:space:]]+([0-9]+)[[:space:]]+([0-9]+) ]]; then
+            ROW="${BASH_REMATCH[1]}"
+            COL="${BASH_REMATCH[2]}"
+            python -m minesweeper.cli reveal $ROW $COL --state-file game_state.json > game_output.txt 2>&1
+          elif [[ "$COMMENT" =~ ^flag[[:space:]]+([0-9]+)[[:space:]]+([0-9]+) ]]; then
+            ROW="${BASH_REMATCH[1]}"
+            COL="${BASH_REMATCH[2]}"
+            python -m minesweeper.cli flag $ROW $COL --state-file game_state.json > game_output.txt 2>&1
+          elif [[ "$COMMENT" =~ ^new ]]; then
+            python -m minesweeper.cli new --state-file game_state.json > game_output.txt 2>&1
+          elif [[ "$COMMENT" =~ ^help ]]; then
+            python -m minesweeper.cli help --state-file game_state.json > game_output.txt 2>&1
+          else
+            python -m minesweeper.cli show --state-file game_state.json > game_output.txt 2>&1
+          fi
+          
+          # Capture output
+          cat game_output.txt >> $GITHUB_OUTPUT
+          echo "status=$?" >> $GITHUB_OUTPUT
+
+      - name: Commit game state
+        run: |
+          cd ${{ github.workspace }}
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          
+          if [ -f game_state.json ]; then
+            git add game_state.json
+            git diff --cached --exit-code || git commit -m "Update game state"
+            git push
+          fi
+
+      - name: Comment with result
+        if: github.event_name == 'issue_comment'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const output = fs.readFileSync('game_output.txt', 'utf8');
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: output
+            });
+
+      - name: Print output
+        if: always()
+        run: cat game_output.txt
