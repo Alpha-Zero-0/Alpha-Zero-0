@@ -27,5 +27,8 @@
   <img src="https://img.shields.io/badge/LaTeX-008080?logo=latex&logoColor=white" />
 </div>
 
+## Github
+![GitHub Heat Map](https://ghchart.rshah.org/Alpha-Zero-0)
+
 ## LEETCODE
 ![LeetCode Heatmap](https://leetcard.jacoblin.cool/HIHIHIHIA?theme=dark&ext=heatmap)
