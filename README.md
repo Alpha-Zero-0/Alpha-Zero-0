@@ -28,6 +28,7 @@
 </div>
 
 ## Github
+![GitHub Streak](https://streak-stats.demolab.com?user=Alpha-Zer0-0&theme=radical)
 ![GitHub Heat Map](https://ghchart.rshah.org/Alpha-Zero-0)
 
 ## LEETCODE
