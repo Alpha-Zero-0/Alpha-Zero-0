@@ -31,9 +31,6 @@
 ![GitHub Streak](https://streak-stats.demolab.com?user=Alpha-Zero-0&theme=radical)
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Alpha-Zero-0&layout=compact&theme=radical)
 ![GitHub Heat Map](https://ghchart.rshah.org/Alpha-Zero-0)
-
-![My GitHub Stats](https://github-readme-stats.vercel.app/api?username=Alpha-Zero-0&show_icons=true&theme=radical)
-![GitHub Trophies](https://github-profile-trophy.vercel.app/?username=Alpha-Zero-0&theme=radical&margin-w=15)
 ![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Alpha-Zero-0&theme=react-dark)
 
 ## LEETCODE
