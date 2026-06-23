@@ -17,6 +17,7 @@ on:
 
 jobs:
   minesweeper:
+    if: github.event_name == 'workflow_dispatch' || github.event.comment.user.login != 'github-actions[bot]'
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -36,10 +37,18 @@ jobs:
         run: |
           if [[ "${{ github.event_name }}" == "issue_comment" ]]; then
             COMMENT="${{ github.event.comment.body }}"
-            echo "comment=$COMMENT" >> $GITHUB_OUTPUT
+            {
+              echo 'comment<<EOF'
+              echo "$COMMENT"
+              echo 'EOF'
+            } >> "$GITHUB_OUTPUT"
           else
             ACTION="${{ github.event.inputs.action }}"
-            echo "comment=$ACTION" >> $GITHUB_OUTPUT
+            {
+              echo 'comment<<EOF'
+              echo "$ACTION"
+              echo 'EOF'
+            } >> "$GITHUB_OUTPUT"
           fi
 
       - name: Process game move
@@ -66,10 +75,10 @@ jobs:
           else
             python -m minesweeper.cli show --state-file game_state.json > game_output.txt 2>&1
           fi
-          
-          # Capture output
-          cat game_output.txt >> $GITHUB_OUTPUT
-          echo "status=$?" >> $GITHUB_OUTPUT
+
+          if [[ ! -s game_output.txt ]]; then
+            echo "No game output was produced." > game_output.txt
+          fi
 
       - name: Commit game state
         run: |
