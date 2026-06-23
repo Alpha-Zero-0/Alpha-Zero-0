@@ -61,21 +61,27 @@ def main():
             
             row, col = int(args.action[1]), int(args.action[2])
             game = manager.load_game()
-            
-            if not game.reveal(row, col):
-                print("Invalid move! Cell already revealed or out of bounds.")
+            if not (0 <= row < game.height and 0 <= col < game.width):
+                print("Invalid move! Cell out of bounds.")
                 print(game.render_board())
                 sys.exit(1)
-            
+
+            cell = game.board[row][col]
+            if cell.revealed or cell.flagged or game.status != GameStatus.ACTIVE.value:
+                print("Invalid move! Cell already revealed, flagged, or the game is over.")
+                print(game.render_board())
+                sys.exit(1)
+
+            hit_bomb = game.reveal(row, col)
             manager.save_game(game)
             
             # Render appropriate output based on game status
-            if game.status == GameStatus.WON.value:
-                print("🎉 **YOU WON!** 🎉")
-                print(game.render_board())
-            elif game.status == GameStatus.LOST.value:
+            if hit_bomb:
                 print("💥 **GAME OVER!** You hit a mine! 💥")
                 print(game.render_board(reveal_mines=True))
+            elif game.status == GameStatus.WON.value:
+                print("🎉 **YOU WON!** 🎉")
+                print(game.render_board())
             else:
                 print("Move accepted!")
                 print(game.render_board())
