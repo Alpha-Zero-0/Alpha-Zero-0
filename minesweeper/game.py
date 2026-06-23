@@ -112,23 +112,42 @@ class Minesweeper:
         self._calculate_adjacent_mines()
 
     def _reveal_flood_fill(self, row: int, col: int):
-        """Flood fill algorithm to reveal safe areas"""
-        if not (0 <= row < self.height and 0 <= col < self.width):
-            return
-        
-        cell = self.board[row][col]
-        if cell.state != CellState.HIDDEN.value:
-            return
+        """Flood fill algorithm to reveal safe areas.
 
-        cell.state = CellState.REVEALED.value
+        Standard Minesweeper behavior:
+        1. Reveal the clicked cell.
+        2. If it has 0 adjacent mines, immediately reveal all 8 neighbors.
+        3. For each revealed neighbor that also has 0 adjacent mines, cascade further.
+        """
+        stack = [(row, col)]
+        visited = set()
 
-        if cell.adjacent_mines == 0 and not cell.is_mine:
-            # Recursively reveal adjacent cells
-            for dr in [-1, 0, 1]:
-                for dc in [-1, 0, 1]:
-                    if dr == 0 and dc == 0:
-                        continue
-                    self._reveal_flood_fill(row + dr, col + dc)
+        while stack:
+            r, c = stack.pop()
+
+            if (r, c) in visited:
+                continue
+            if not (0 <= r < self.height and 0 <= c < self.width):
+                continue
+
+            cell = self.board[r][c]
+            if cell.state != CellState.HIDDEN.value:
+                continue
+
+            visited.add((r, c))
+            cell.state = CellState.REVEALED.value
+
+            # If this cell has 0 adjacent mines, reveal all neighbors and queue them for cascading
+            if cell.adjacent_mines == 0:
+                for dr in [-1, 0, 1]:
+                    for dc in [-1, 0, 1]:
+                        if dr == 0 and dc == 0:
+                            continue
+                        nr, nc = r + dr, c + dc
+                        if 0 <= nr < self.height and 0 <= nc < self.width:
+                            neighbor = self.board[nr][nc]
+                            if (nr, nc) not in visited and not neighbor.is_mine:
+                                stack.append((nr, nc))
 
     def _first_click_reveal(self, row: int, col: int) -> None:
         """Reveal the entire connected non-mine region starting at (row, col).
