@@ -30,12 +30,14 @@ class Cell:
     is_mine: bool
     state: str  # "hidden", "revealed", "flagged"
     adjacent_mines: int = 0
+    suppress_number: bool = False
 
     def to_dict(self):
         return {
             "is_mine": self.is_mine,
             "state": self.state,
-            "adjacent_mines": self.adjacent_mines
+            "adjacent_mines": self.adjacent_mines,
+            "suppress_number": self.suppress_number
         }
 
     @classmethod
@@ -43,7 +45,8 @@ class Cell:
         return cls(
             is_mine=data["is_mine"],
             state=data["state"],
-            adjacent_mines=data.get("adjacent_mines", 0)
+            adjacent_mines=data.get("adjacent_mines", 0),
+            suppress_number=data.get("suppress_number", False)
         )
 
 
@@ -127,6 +130,37 @@ class Minesweeper:
                         continue
                     self._reveal_flood_fill(row + dr, col + dc)
 
+    def _first_click_reveal(self, row: int, col: int) -> None:
+        """Reveal the entire connected non-mine region starting at (row, col).
+
+        This is a special first-click behavior: reveal all connected cells that are not mines
+        (connectivity via 8-neighborhood). After this, suppression of interior numbers is applied.
+        """
+        stack = [(row, col)]
+        visited = set()
+        while stack:
+            r, c = stack.pop()
+            if (r, c) in visited:
+                continue
+            visited.add((r, c))
+            if not (0 <= r < self.height and 0 <= c < self.width):
+                continue
+            cell = self.board[r][c]
+            if cell.is_mine:
+                continue
+            if cell.state == CellState.REVEALED.value:
+                continue
+            cell.state = CellState.REVEALED.value
+            # push neighbors regardless of adjacent_mines (we reveal whole connected non-mine component)
+            for dr in [-1, 0, 1]:
+                for dc in [-1, 0, 1]:
+                    if dr == 0 and dc == 0:
+                        continue
+                    nr, nc = r + dr, c + dc
+                    if 0 <= nr < self.height and 0 <= nc < self.width:
+                        if (nr, nc) not in visited and not self.board[nr][nc].is_mine:
+                            stack.append((nr, nc))
+
     def reveal(self, row: int, col: int) -> bool:
         """
         Reveal a cell. Returns True if valid move, False if already revealed/flagged.
@@ -140,16 +174,26 @@ class Minesweeper:
             return False
 
         # First move setup
-        if self.moves == 0:
+        first_click = (self.moves == 0)
+        if first_click:
             self._first_move(row, col)
 
         if cell.is_mine:
             cell.state = CellState.REVEALED.value
             self.status = GameStatus.LOST.value
         else:
-            self._reveal_flood_fill(row, col)
+            if first_click:
+                # Special first-click behavior: reveal whole connected non-mine region
+                self._first_click_reveal(row, col)
+            else:
+                self._reveal_flood_fill(row, col)
+
             if self._check_win():
                 self.status = GameStatus.WON.value
+
+        # After the first click, suppress interior numbers so only edge numbers show
+        if first_click and self.status == GameStatus.ACTIVE.value:
+            self._suppress_interior_numbers()
 
         self.moves += 1
         return True
@@ -198,7 +242,11 @@ class Minesweeper:
                 elif cell.adjacent_mines == 0:
                     line += "⬜ "
                 else:
-                    line += f"{cell.adjacent_mines} "
+                    # If suppress_number is set (only used after first click), show empty instead
+                    if getattr(cell, 'suppress_number', False):
+                        line += "⬜ "
+                    else:
+                        line += f"{cell.adjacent_mines} "
             lines.append(line)
         lines.append("```")
         
@@ -214,8 +262,8 @@ class Minesweeper:
             "moves": self.moves,
             "board": [
                 [cell.to_dict() for cell in row]
-                for row in self.board
-            ]
+                    for row in self.board
+                ]
         }
 
     @classmethod
@@ -229,6 +277,40 @@ class Minesweeper:
             for row in state["board"]
         ]
         return game
+
+    def _suppress_interior_numbers(self) -> None:
+        """Mark revealed cells that are interior (all neighbors revealed) to hide their numbers.
+
+        Applied only after the first click so the revealed area looks cleaner: interior
+        cells (even if they have a non-zero adjacent_mines) will display as empty.
+        """
+        for r in range(self.height):
+            for c in range(self.width):
+                cell = self.board[r][c]
+                # Only consider revealed cells with numbers
+                if cell.state != CellState.REVEALED.value:
+                    continue
+                if cell.adjacent_mines == 0:
+                    # zeros already render as empty
+                    cell.suppress_number = False
+                    continue
+
+                # Check neighbors; if any neighbor is still hidden or flagged, this is an edge
+                interior = True
+                for dr in [-1, 0, 1]:
+                    for dc in [-1, 0, 1]:
+                        if dr == 0 and dc == 0:
+                            continue
+                        nr, nc = r + dr, c + dc
+                        if 0 <= nr < self.height and 0 <= nc < self.width:
+                            neighbor = self.board[nr][nc]
+                            if neighbor.state != CellState.REVEALED.value:
+                                interior = False
+                                break
+                    if not interior:
+                        break
+
+                cell.suppress_number = interior
 
 
 if __name__ == "__main__":
