@@ -32,7 +32,7 @@ Board Coordinates:
 
 Current Board:
 {}
-""".format(game.height - 1, game.width - 1, game.render_board())
+""".format(game.height - 1, game.width - 1, game.render_board(reveal_mines=game.hitBomb))
     return help_text
 
 
@@ -61,16 +61,23 @@ def main():
             
             row, col = int(args.action[1]), int(args.action[2])
             game = manager.load_game()
-            if not (0 <= row < game.height and 0 <= col < game.width):
+            if not (0 <= row < game.size and 0 <= col < game.size):
                 print("Invalid move! Cell out of bounds.")
                 print(game.render_board())
                 sys.exit(1)
 
             cell = game.board[row][col]
-            if cell.revealed or cell.flagged or game.status != GameStatus.ACTIVE.value:
-                print("Invalid move! Cell already revealed, flagged, or the game is over.")
+            if game.winner or game.hitBomb:
+                print(game.render_board(reveal_mines=True))
+                sys.exit(0)
+
+            if cell.revealed or cell.flagged:
+                print("Move accepted!")
                 print(game.render_board())
-                sys.exit(1)
+                sys.exit(0)
+
+            if not game.timerId:
+                game.set_timer()
 
             hit_bomb = game.reveal(row, col)
             manager.save_game(game)
@@ -79,7 +86,7 @@ def main():
             if hit_bomb:
                 print("💥 **GAME OVER!** You hit a mine! 💥")
                 print(game.render_board(reveal_mines=True))
-            elif game.status == GameStatus.WON.value:
+            elif game.winner:
                 print("🎉 **YOU WON!** 🎉")
                 print(game.render_board())
             else:
@@ -93,12 +100,12 @@ def main():
             
             row, col = int(args.action[1]), int(args.action[2])
             game = manager.load_game()
-            
-            if not game.toggle_flag(row, col):
-                print("Invalid move! Can only flag hidden cells.")
+            if not (0 <= row < game.size and 0 <= col < game.size):
+                print("Invalid move! Cell out of bounds.")
                 print(game.render_board())
                 sys.exit(1)
-            
+
+            game.toggle_flag(row, col)
             manager.save_game(game)
             print("Flag toggled!")
             print(game.render_board())
@@ -106,8 +113,8 @@ def main():
         elif action == "show":
             game = manager.load_game()
             print(format_help(game))
-            if game.status != GameStatus.ACTIVE.value:
-                if game.status == GameStatus.WON.value:
+            if game.hitBomb or game.winner:
+                if game.winner:
                     print("\n🎉 **GAME WON!** 🎉")
                 else:
                     print("\n💥 **GAME OVER!**")

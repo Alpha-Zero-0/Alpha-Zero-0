@@ -1,22 +1,46 @@
-"""Minesweeper game logic."""
+"""Python translation of the JavaScript Minesweeper game logic."""
+
+from __future__ import annotations
 
 import random
 from dataclasses import dataclass
 from enum import Enum
-from typing import List
+from typing import Callable, List, Optional
+
+
+BOMB_IMAGE = "💣"
+FLAG_IMAGE = "🚩"
+WRONG_BOMB_IMAGE = "❌"
+SMILE_FACE = "🙂"
+DEAD_FACE = "☹"
+COOL_FACE = "😎"
+
+SIZE_LOOKUP = {
+    9: {"totalBombs": 10, "tableWidth": "245px"},
+    16: {"totalBombs": 40, "tableWidth": "420px"},
+    30: {"totalBombs": 160, "tableWidth": "794px"},
+}
+
+COLORS = [
+    "",
+    "#0000FA",
+    "#4B802D",
+    "#DB1300",
+    "#202081",
+    "#690400",
+    "#457A7A",
+    "#1B1B1B",
+    "#7A7A7A",
+]
 
 
 class CellState(Enum):
-    """State of a cell in the game."""
-
     HIDDEN = "hidden"
     REVEALED = "revealed"
     FLAGGED = "flagged"
 
 
 class GameStatus(Enum):
-    """Game outcome state."""
-
     ACTIVE = "active"
     WON = "won"
     LOST = "lost"
@@ -24,41 +48,40 @@ class GameStatus(Enum):
 
 @dataclass
 class Cell:
-    """Single Minesweeper cell."""
-
     row: int
     col: int
+    board: List[List["Cell"]]
     bomb: bool = False
     revealed: bool = False
     flagged: bool = False
-    adjacent_mines: int = 0
+    adjBombs: int = 0
 
-    def get_adj_cells(self, game: "Minesweeper") -> List["Cell"]:
-        adj = []
-        last_row = game.height - 1
-        last_col = game.width - 1
+    def get_adj_cells(self) -> List["Cell"]:
+        adj: List[Cell] = []
+        last_row = len(self.board) - 1
+        last_col = len(self.board[0]) - 1
 
         if self.row > 0 and self.col > 0:
-            adj.append(game.board[self.row - 1][self.col - 1])
+            adj.append(self.board[self.row - 1][self.col - 1])
         if self.row > 0:
-            adj.append(game.board[self.row - 1][self.col])
+            adj.append(self.board[self.row - 1][self.col])
         if self.row > 0 and self.col < last_col:
-            adj.append(game.board[self.row - 1][self.col + 1])
+            adj.append(self.board[self.row - 1][self.col + 1])
         if self.col < last_col:
-            adj.append(game.board[self.row][self.col + 1])
+            adj.append(self.board[self.row][self.col + 1])
         if self.row < last_row and self.col < last_col:
-            adj.append(game.board[self.row + 1][self.col + 1])
+            adj.append(self.board[self.row + 1][self.col + 1])
         if self.row < last_row:
-            adj.append(game.board[self.row + 1][self.col])
+            adj.append(self.board[self.row + 1][self.col])
         if self.row < last_row and self.col > 0:
-            adj.append(game.board[self.row + 1][self.col - 1])
+            adj.append(self.board[self.row + 1][self.col - 1])
         if self.col > 0:
-            adj.append(game.board[self.row][self.col - 1])
+            adj.append(self.board[self.row][self.col - 1])
 
         return adj
 
-    def calc_adj_mines(self, game: "Minesweeper") -> None:
-        self.adjacent_mines = sum(1 for cell in self.get_adj_cells(game) if cell.bomb)
+    def calc_adj_bombs(self) -> None:
+        self.adjBombs = sum(1 for cell in self.get_adj_cells() if cell.bomb)
 
     def flag(self) -> bool:
         if not self.revealed:
@@ -66,199 +89,274 @@ class Cell:
             return self.flagged
         return self.flagged
 
-    def reveal(self, game: "Minesweeper") -> bool:
-        """Reveal this cell. Returns True if a bomb was hit."""
-        if self.revealed or self.flagged:
+    def reveal(self) -> bool:
+        """Reveal the cell. Returns True if a bomb was hit."""
+        if self.revealed:
             return False
 
         self.revealed = True
         if self.bomb:
             return True
-
-        if self.adjacent_mines == 0:
-            for cell in self.get_adj_cells(game):
-                if not cell.revealed and not cell.bomb:
-                    cell.reveal(game)
-
+        if self.adjBombs == 0:
+            adj = self.get_adj_cells()
+            for cell in adj:
+                if not cell.revealed:
+                    cell.reveal()
         return False
-
-    def to_dict(self) -> dict:
-        return {
-            "row": self.row,
-            "col": self.col,
-            "bomb": self.bomb,
-            "revealed": self.revealed,
-            "flagged": self.flagged,
-            "adjacent_mines": self.adjacent_mines,
-        }
-
-    @classmethod
-    def from_dict(cls, data: dict, row: int, col: int) -> "Cell":
-        # Support both the old schema (is_mine/state) and the newer schema.
-        bomb = data.get("bomb", data.get("is_mine", False))
-        revealed = data.get("revealed", data.get("state") == CellState.REVEALED.value)
-        flagged = data.get("flagged", data.get("state") == CellState.FLAGGED.value)
-        adjacent_mines = data.get("adjacent_mines", data.get("adjBombs", 0))
-
-        return cls(
-            row=row,
-            col=col,
-            bomb=bomb,
-            revealed=revealed,
-            flagged=flagged,
-            adjacent_mines=adjacent_mines,
-        )
 
 
 class Minesweeper:
-    """Minesweeper engine with classic reveal/flag behavior."""
+    """Direct translation of the JS Minesweeper game state and logic."""
 
-    def __init__(self, width: int = 8, height: int = 8, mines: int = 10):
-        self.width = width
-        self.height = height
-        self.mine_count = mines
-        self.board: List[List[Cell]] = self._build_board()
-        self.status = GameStatus.ACTIVE.value
-        self.moves = 0
-        self._place_bombs()
-        self._calculate_adjacent_mines()
+    def __init__(self, size: int = 16, total_bombs: Optional[int] = None):
+        self.size = size
+        self.width = size
+        self.height = size
+        self.total_bombs = total_bombs if total_bombs is not None else SIZE_LOOKUP[size]["totalBombs"]
+        self.table_width = SIZE_LOOKUP[size]["tableWidth"]
+        self.board: List[List[Cell]] = []
+        self.status = "active"
+        self.bombCount = 0
+        self.timeElapsed = 0
+        self.adjBombs = None
+        self.hitBomb = False
+        self.elapsedTime = 0
+        self.timerId = None
+        self.winner = False
+        self._build_table()
+        self.board = self._build_arrays()
+        self._build_cells()
+        self.bombCount = self.get_bomb_count()
 
-    def _build_board(self) -> List[List[Cell]]:
-        return [
-            [Cell(row=row, col=col) for col in range(self.width)]
-            for row in range(self.height)
-        ]
+    def _build_arrays(self) -> List[List[Cell]]:
+        arr: List[List[Optional[Cell]]] = [[None for _ in range(self.size)] for _ in range(self.size)]
+        return arr  # type: ignore[return-value]
 
-    def _place_bombs(self) -> None:
-        remaining = self.mine_count
-        while remaining > 0:
-            row = random.randint(0, self.height - 1)
-            col = random.randint(0, self.width - 1)
-            cell = self.board[row][col]
-            if not cell.bomb:
-                cell.bomb = True
-                remaining -= 1
+    def _build_cells(self) -> None:
+        for row_idx, row_arr in enumerate(self.board):
+            for col_idx, _ in enumerate(row_arr):
+                self.board[row_idx][col_idx] = Cell(row_idx, col_idx, self.board)
+        self.add_bombs()
+        self.run_code_for_all_cells(lambda cell: cell.calc_adj_bombs())
 
-    def _calculate_adjacent_mines(self) -> None:
-        for row in self.board:
-            for cell in row:
-                if not cell.bomb:
-                    cell.calc_adj_mines(self)
+    def _build_table(self) -> None:
+        # Kept for structural parity with the JS version; the CLI uses render().
+        return None
 
-    def reveal(self, row: int, col: int) -> bool:
-        """Reveal a cell. Returns True if a bomb was hit."""
-        if not (0 <= row < self.height and 0 <= col < self.width):
-            return False
-        if self.status != GameStatus.ACTIVE.value:
-            return False
+    def run_code_for_all_cells(self, cb: Callable[[Cell], None]) -> None:
+        for row_arr in self.board:
+            for cell in row_arr:
+                cb(cell)
 
-        cell = self.board[row][col]
-        hit_bomb = cell.reveal(self)
-        self.moves += 1
-
-        if hit_bomb:
-            self.status = GameStatus.LOST.value
-            self.reveal_all()
-            return True
-
-        if self._check_win():
-            self.status = GameStatus.WON.value
-
-        return False
-
-    def toggle_flag(self, row: int, col: int) -> bool:
-        """Toggle a flag on a hidden cell."""
-        if not (0 <= row < self.height and 0 <= col < self.width):
-            return False
-        if self.status != GameStatus.ACTIVE.value:
-            return False
-        return self.board[row][col].flag()
+    def set_timer(self) -> None:
+        # No background timer in the CLI implementation; kept for parity.
+        self.elapsedTime += 1
+        self.timeElapsed = self.elapsedTime
 
     def reveal_all(self) -> None:
-        for row in self.board:
-            for cell in row:
+        for row_arr in self.board:
+            for cell in row_arr:
                 cell.revealed = True
 
-    def _check_win(self) -> bool:
+    def get_bomb_count(self) -> int:
+        count = 0
+        for row in self.board:
+            count += sum(1 for cell in row if cell.bomb)
+        return count
+
+    def add_bombs(self) -> None:
+        current_total_bombs = self.total_bombs
+        while current_total_bombs != 0:
+            row = random.randrange(self.size)
+            col = random.randrange(self.size)
+            current_cell = self.board[row][col]
+            if not current_cell.bomb:
+                current_cell.bomb = True
+                current_total_bombs -= 1
+
+    def get_winner(self) -> bool:
         for row in self.board:
             for cell in row:
-                if not cell.bomb and not cell.revealed:
+                if not cell.revealed and not cell.bomb:
                     return False
         return True
 
-    def bomb_counter(self) -> int:
-        flagged = sum(1 for row in self.board for cell in row if cell.flagged)
-        return self.mine_count - flagged
+    def reveal(self, row: int, col: int) -> bool:
+        if not (0 <= row < self.size and 0 <= col < self.size):
+            return False
+        if self.winner or self.hitBomb:
+            return False
 
-    def _face(self) -> str:
-        if self.status == GameStatus.LOST.value:
-            return "☹"
-        if self.status == GameStatus.WON.value:
-            return "😎"
-        return "🙂"
+        cell = self.board[row][col]
+        hit_bomb = cell.reveal()
+        if hit_bomb:
+            self.hitBomb = True
+            self.status = "lost"
+            self.reveal_all()
+        else:
+            self.winner = self.get_winner()
+            if self.winner:
+                self.status = "won"
+        return hit_bomb
 
-    def _cell_display(self, cell: Cell, reveal_mines: bool = False) -> str:
-        if cell.flagged and not cell.revealed:
-            return "🚩"
+    def toggle_flag(self, row: int, col: int) -> bool:
+        if not (0 <= row < self.size and 0 <= col < self.size):
+            return False
+        if self.winner or self.hitBomb:
+            return False
+
+        cell = self.board[row][col]
+        if cell.revealed:
+            return False
+
+        new_flagged = cell.flag()
+        self.bombCount += -1 if new_flagged else 1
+        return new_flagged
+
+    def _display_cell(self, cell: Cell) -> str:
+        if cell.flagged:
+            return FLAG_IMAGE
         if cell.revealed:
             if cell.bomb:
-                return "💣"
-            if cell.adjacent_mines == 0:
-                return " "
-            return str(cell.adjacent_mines)
-        if reveal_mines and cell.bomb:
-            return "💣"
+                return BOMB_IMAGE
+            if cell.adjBombs:
+                return str(cell.adjBombs)
+            return " "
         return "■"
 
-    def render_board(self, reveal_mines: bool = False) -> str:
-        """Render a board view suitable for GitHub comments."""
-        status_line = (
-            f"╔════════════════════════════════════╗\n"
-            f"║ Bombs: {self.bomb_counter():03d}   Face: {self._face()}   Moves: {self.moves:03d} ║\n"
-            f"╚════════════════════════════════════╝"
-        )
+    def render(self) -> str:
+        bomb_counter = str(self.bombCount).zfill(3)
+        face = SMILE_FACE
+        if self.hitBomb:
+            face = DEAD_FACE
+        elif self.winner:
+            face = COOL_FACE
 
-        header = "   " + " ".join(f"{col:>2}" for col in range(self.width))
-        rows = [header]
+        lines = [
+            "╔════════════════════════════════════╗",
+            f"║ Bombs: {bomb_counter}   Face: {face}   Moves: {str(self.elapsedTime).zfill(3)} ║",
+            "╚════════════════════════════════════╝",
+            "",
+            "```",
+            "   " + " ".join(f"{idx:>2}" for idx in range(self.size)),
+        ]
+
         for row_idx, row in enumerate(self.board):
-            rendered_cells = [self._cell_display(cell, reveal_mines=reveal_mines) for cell in row]
-            rows.append(f"{row_idx:>2} " + "  ".join(f"{cell:>1}" for cell in rendered_cells))
+            rendered = "  ".join(f"{self._display_cell(cell):>1}" for cell in row)
+            lines.append(f"{row_idx:>2} {rendered}")
 
-        return "\n".join([status_line, "", "```", *rows, "```"])
+        lines.append("```")
+
+        if self.hitBomb:
+            lines.append("")
+            lines.append("💥 **GAME OVER!** You hit a mine! 💥")
+
+        elif self.winner:
+            lines.append("")
+            lines.append("🎉 **YOU WON!** 🎉")
+
+        return "\n".join(lines)
+
+    def render_board(self, reveal_mines: bool = False) -> str:
+        if not reveal_mines:
+            return self.render()
+
+        bomb_counter = str(self.bombCount).zfill(3)
+        lines = [
+            "╔════════════════════════════════════╗",
+            f"║ Bombs: {bomb_counter}   Face: {DEAD_FACE}   Moves: {str(self.elapsedTime).zfill(3)} ║",
+            "╚════════════════════════════════════╝",
+            "",
+            "```",
+            "   " + " ".join(f"{idx:>2}" for idx in range(self.size)),
+        ]
+        for row_idx, row in enumerate(self.board):
+            rendered = []
+            for cell in row:
+                if cell.bomb:
+                    rendered.append(BOMB_IMAGE)
+                elif cell.flagged:
+                    rendered.append(WRONG_BOMB_IMAGE)
+                elif cell.revealed and cell.adjBombs:
+                    rendered.append(str(cell.adjBombs))
+                elif cell.revealed:
+                    rendered.append(" ")
+                else:
+                    rendered.append("■")
+            lines.append(f"{row_idx:>2} " + "  ".join(f"{cell:>1}" for cell in rendered))
+        lines.append("```")
+        lines.append("")
+        lines.append("💥 **GAME OVER!**")
+        return "\n".join(lines)
 
     def get_state(self) -> dict:
         return {
-            "width": self.width,
-            "height": self.height,
-            "mine_count": self.mine_count,
-            "status": self.status,
-            "moves": self.moves,
-            "board": [[cell.to_dict() for cell in row] for row in self.board],
+            "size": self.size,
+            "total_bombs": self.total_bombs,
+            "bombCount": self.bombCount,
+            "timeElapsed": self.timeElapsed,
+            "adjBombs": self.adjBombs,
+            "hitBomb": self.hitBomb,
+            "elapsedTime": self.elapsedTime,
+            "timerId": self.timerId,
+            "winner": self.winner,
+            "board": [[cell_to_state(cell) for cell in row] for row in self.board],
         }
 
     @classmethod
     def from_state(cls, state: dict) -> "Minesweeper":
-        game = cls(state["width"], state["height"], state["mine_count"])
-        game.status = state.get("status", GameStatus.ACTIVE.value)
-        game.moves = state.get("moves", 0)
+        size = state.get("size", state.get("width", 16))
+        total_bombs = state.get("total_bombs", state.get("mine_count", SIZE_LOOKUP.get(size, SIZE_LOOKUP[16])["totalBombs"]))
+        game = cls(size=size, total_bombs=total_bombs)
+        game.bombCount = state.get("bombCount", game.get_bomb_count())
+        game.timeElapsed = state.get("timeElapsed", 0)
+        game.adjBombs = state.get("adjBombs")
+        game.hitBomb = state.get("hitBomb", False)
+        game.elapsedTime = state.get("elapsedTime", game.timeElapsed)
+        game.timerId = state.get("timerId")
+        game.winner = state.get("winner", False)
+        game.status = state.get("status", "lost" if game.hitBomb else "won" if game.winner else "active")
 
-        board_state = state.get("board", [])
-        game.board = []
-        for row_idx, row in enumerate(board_state):
-            board_row = []
-            for col_idx, cell_data in enumerate(row):
-                board_row.append(Cell.from_dict(cell_data, row_idx, col_idx))
-            game.board.append(board_row)
-
-        # If the file contains an older or truncated state, rebuild a clean board.
-        if not game.board or len(game.board) != game.height:
-            return cls(game.width, game.height, game.mine_count)
-
+        board_state = state.get("board")
+        if board_state:
+            game.board = []
+            for row_idx, row in enumerate(board_state):
+                board_row = []
+                for col_idx, cell_state in enumerate(row):
+                    cell = Cell.from_state(cell_state, row_idx, col_idx, game.board if game.board else [])
+                    board_row.append(cell)
+                game.board.append(board_row)
+            for row in game.board:
+                for cell in row:
+                    cell.board = game.board
         return game
 
 
+def cell_to_state(cell: Cell) -> dict:
+    return {
+        "row": cell.row,
+        "col": cell.col,
+        "bomb": cell.bomb,
+        "revealed": cell.revealed,
+        "flagged": cell.flagged,
+        "adjBombs": cell.adjBombs,
+        "adjacent_mines": cell.adjBombs,
+    }
+
+
+# Patch Cell.from_state signature after class definition for readability.
+def _cell_from_state(cls, data: dict, row: int, col: int, board: List[List[Cell]]) -> Cell:
+    cell = cls(row=row, col=col, board=board or [], bomb=data.get("bomb", False))
+    cell.revealed = data.get("revealed", False)
+    cell.flagged = data.get("flagged", False)
+    cell.adjBombs = data.get("adjBombs", data.get("adjacent_mines", 0))
+    return cell
+
+
+Cell.from_state = classmethod(_cell_from_state)  # type: ignore[attr-defined]
+
+
 if __name__ == "__main__":
-    game = Minesweeper(8, 8, 10)
+    game = Minesweeper()
     game.reveal(0, 0)
-    print(game.render_board())
-    print(f"Status: {game.status}")
+    print(game.render())
