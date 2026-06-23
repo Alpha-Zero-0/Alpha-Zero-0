@@ -28,7 +28,7 @@
 </div>
 
 ## Github
-
+![GitHub Streak](https://streak-stats.demolab.com?user=Alpha-Zero-0&theme=radical)
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Alpha-Zero-0&layout=compact&theme=radical)
 ![GitHub Heat Map](https://ghchart.rshah.org/Alpha-Zero-0)
 ![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Alpha-Zero-0&theme=react-dark)
