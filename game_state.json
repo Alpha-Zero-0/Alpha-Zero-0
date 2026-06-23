@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-06-23T10:43:23.385755",
+  "timestamp": "2026-06-23T09:56:37.532573",
   "game": {
     "width": 8,
     "height": 8,
     "mine_count": 10,
     "status": "active",
-    "moves": 1,
+    "moves": 0,
     "board": [
       [
         {
@@ -47,13 +47,13 @@
         {
           "is_mine": false,
           "state": "hidden",
-          "adjacent_mines": 1,
+          "adjacent_mines": 0,
           "suppress_number": false
         },
         {
           "is_mine": false,
           "state": "hidden",
-          "adjacent_mines": 1,
+          "adjacent_mines": 0,
           "suppress_number": false
         }
       ],
@@ -79,29 +79,29 @@
         {
           "is_mine": false,
           "state": "hidden",
-          "adjacent_mines": 1,
+          "adjacent_mines": 0,
           "suppress_number": false
         },
         {
           "is_mine": false,
           "state": "hidden",
-          "adjacent_mines": 1,
+          "adjacent_mines": 0,
           "suppress_number": false
         },
         {
           "is_mine": false,
           "state": "hidden",
-          "adjacent_mines": 2,
+          "adjacent_mines": 0,
           "suppress_number": false
         },
         {
           "is_mine": false,
           "state": "hidden",
-          "adjacent_mines": 2,
+          "adjacent_mines": 0,
           "suppress_number": false
         },
         {
-          "is_mine": true,
+          "is_mine": false,
           "state": "hidden",
           "adjacent_mines": 0,
           "suppress_number": false
@@ -117,125 +117,7 @@
         {
           "is_mine": false,
           "state": "hidden",
-          "adjacent_mines": 1,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 1,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 2,
-          "suppress_number": false
-        },
-        {
-          "is_mine": true,
-          "state": "hidden",
           "adjacent_mines": 0,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 2,
-          "suppress_number": false
-        },
-        {
-          "is_mine": true,
-          "state": "hidden",
-          "adjacent_mines": 0,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 2,
-          "suppress_number": false
-        }
-      ],
-      [
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 0,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 2,
-          "suppress_number": false
-        },
-        {
-          "is_mine": true,
-          "state": "hidden",
-          "adjacent_mines": 0,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "revealed",
-          "adjacent_mines": 3,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 1,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 2,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 1,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 1,
-          "suppress_number": false
-        }
-      ],
-      [
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 0,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 3,
-          "suppress_number": false
-        },
-        {
-          "is_mine": true,
-          "state": "hidden",
-          "adjacent_mines": 0,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 4,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 1,
           "suppress_number": false
         },
         {
@@ -247,45 +129,7 @@
         {
           "is_mine": false,
           "state": "hidden",
-          "adjacent_mines": 1,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 1,
-          "suppress_number": false
-        }
-      ],
-      [
-        {
-          "is_mine": false,
-          "state": "hidden",
           "adjacent_mines": 0,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 2,
-          "suppress_number": false
-        },
-        {
-          "is_mine": true,
-          "state": "hidden",
-          "adjacent_mines": 0,
-          "suppress_number": false
-        },
-        {
-          "is_mine": true,
-          "state": "hidden",
-          "adjacent_mines": 0,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 1,
           "suppress_number": false
         },
         {
@@ -297,17 +141,9 @@
         {
           "is_mine": false,
           "state": "hidden",
-          "adjacent_mines": 1,
-          "suppress_number": false
-        },
-        {
-          "is_mine": true,
-          "state": "hidden",
           "adjacent_mines": 0,
           "suppress_number": false
-        }
-      ],
-      [
+        },
         {
           "is_mine": false,
           "state": "hidden",
@@ -317,43 +153,7 @@
         {
           "is_mine": false,
           "state": "hidden",
-          "adjacent_mines": 1,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 3,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 4,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 3,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 1,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 1,
-          "suppress_number": false
-        },
-        {
-          "is_mine": false,
-          "state": "hidden",
-          "adjacent_mines": 1,
+          "adjacent_mines": 0,
           "suppress_number": false
         }
       ],
@@ -373,17 +173,11 @@
         {
           "is_mine": false,
           "state": "hidden",
-          "adjacent_mines": 1,
-          "suppress_number": false
-        },
-        {
-          "is_mine": true,
-          "state": "hidden",
           "adjacent_mines": 0,
           "suppress_number": false
         },
         {
-          "is_mine": true,
+          "is_mine": false,
           "state": "hidden",
           "adjacent_mines": 0,
           "suppress_number": false
@@ -391,7 +185,213 @@
         {
           "is_mine": false,
           "state": "hidden",
-          "adjacent_mines": 1,
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        }
+      ],
+      [
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        }
+      ],
+      [
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        }
+      ],
+      [
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        }
+      ],
+      [
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
+          "suppress_number": false
+        },
+        {
+          "is_mine": false,
+          "state": "hidden",
+          "adjacent_mines": 0,
           "suppress_number": false
         },
         {
