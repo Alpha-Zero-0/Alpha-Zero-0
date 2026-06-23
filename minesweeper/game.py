@@ -160,6 +160,9 @@ class Minesweeper:
                     if 0 <= nr < self.height and 0 <= nc < self.width:
                         if (nr, nc) not in visited and not self.board[nr][nc].is_mine:
                             stack.append((nr, nc))
+        
+    # NOTE: _first_click_reveal was an aggressive reveal that exposed all non-mine cells.
+    # The game now uses standard flood-fill behavior (see comment in `reveal`).
 
     def reveal(self, row: int, col: int) -> bool:
         """
@@ -182,11 +185,10 @@ class Minesweeper:
             cell.state = CellState.REVEALED.value
             self.status = GameStatus.LOST.value
         else:
-            if first_click:
-                # Special first-click behavior: reveal whole connected non-mine region
-                self._first_click_reveal(row, col)
-            else:
-                self._reveal_flood_fill(row, col)
+            # First-click should follow standard Minesweeper flood-fill rules:
+            # reveal the selected cell; if it has 0 adjacent mines, the flood-fill
+            # algorithm will recursively reveal neighboring zeros and their boundaries.
+            self._reveal_flood_fill(row, col)
 
             if self._check_win():
                 self.status = GameStatus.WON.value
