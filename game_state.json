@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-06-23T09:58:58.764502",
+  "timestamp": "2026-06-23T10:00:13.375264",
   "game": {
     "width": 8,
     "height": 8,
     "mine_count": 10,
     "status": "active",
-    "moves": 3,
+    "moves": 4,
     "board": [
       [
         {
@@ -228,7 +228,7 @@
         },
         {
           "is_mine": false,
-          "state": "hidden",
+          "state": "revealed",
           "adjacent_mines": 2,
           "suppress_number": false
         },
