@@ -1,97 +1,122 @@
-# 🎮 Interactive Minesweeper Game
+# Interactive Minesweeper Game
 
-An interactive Minesweeper game that you can play directly on this GitHub profile using issue comments and GitHub Actions!
+Play Minesweeper through GitHub issue comments or from the command line. The game state is saved to `game_state.json`, so each move continues from the previous board.
 
-## How to Play
+## Commands
 
-### Starting a New Game
-Comment on any issue with:
-```
+Start a fresh game:
+
+```text
 new
 ```
 
-### Making Moves
-Use the following commands in issue comments:
+Show the current board:
 
-**Reveal a cell:**
-```
-reveal ROW COL
-```
-Example: `reveal 0 0` (reveals cell at row 0, column 0)
-
-**Flag/Unflag a cell:**
-```
-flag ROW COL
-```
-Example: `flag 2 3` (flags cell at row 2, column 3)
-
-**Show current board:**
-```
+```text
 show
 ```
 
-**Get help:**
-```
+Show the help text and current board:
+
+```text
 help
 ```
 
-## Board Layout
-- **■** = Hidden cell
-- **🚩** = Flagged cell
-- **⬜** = Empty cell (0 adjacent mines)
-- **1-8** = Number of adjacent mines
-- **💣** = Mine (revealed after game over)
+Reveal one cell:
 
-## Game Rules
-- Classic Minesweeper rules apply
-- First move is always safe (no mine)
-- Reveal all safe cells to win
-- One mine revealed = game over
-- Board is 8x8 with 10 mines
-
-## File Structure
-```
-minesweeper/
-├── __init__.py          # Package initialization
-├── game.py              # Core game logic
-├── state_manager.py     # Game state persistence
-├── cli.py               # Command-line interface
-└── requirements.txt     # Python dependencies
+```text
+reveal ROW COL
 ```
 
-## Game State
-The game state is automatically saved to `game_state.json` and persisted in the repository. This allows continuous play across multiple moves.
+Reveal multiple cells in one move:
 
-## Local Testing
-To test the game locally:
+```text
+reveal ROW COL ROW COL ...
+```
+
+Example:
+
+```text
+reveal 0 0 0 1 1 1
+```
+
+Flag or unflag one cell:
+
+```text
+flag ROW COL
+```
+
+Flag or unflag multiple cells in one move:
+
+```text
+flag ROW COL ROW COL ...
+```
+
+Example:
+
+```text
+flag 2 3 2 4 3 4
+```
+
+Rows and columns are zero-indexed. On the default board, valid coordinates are `0` through `15`.
+
+## Board Symbols
+
+- `■` = hidden cell
+- `F` = flagged cell
+- `X` = incorrect flag after game over
+- `*` = mine after game over
+- blank cell = revealed cell with no adjacent mines
+- `1`-`8` = number of adjacent mines
+
+## Rules
+
+- The default board is 16x16 with 40 mines.
+- The first reveal is always safe, including the surrounding 3x3 area when possible.
+- Revealing a blank cell flood-reveals connected blank cells and their bordering numbers.
+- Revealing a mine ends the game and shows the full board.
+- Revealing all non-mine cells wins the game.
+- Flagging toggles a cell between flagged and unflagged.
+- Revealed cells cannot be flagged.
+- Batch reveal and flag commands are validated before they change the board; if any coordinate is out of bounds or malformed, the command is rejected.
+- A batch reveal is applied from left to right and stops if the game is won or a mine is hit.
+
+## GitHub Play
+
+Comment on an issue with one of the commands above. GitHub Actions runs the game, saves the updated state, and replies with the rendered board.
+
+The workflow also supports manual dispatch for:
+
+- `new`
+- `show`
+- `help`
+
+## Local Play
+
+Run commands from the repository root:
 
 ```bash
-# Install (no external dependencies needed)
-cd minesweeper
-
-# Show help
-python -m cli help
-
-# Start new game
-python -m cli new
-
-# Make a move
-python -m cli reveal 0 0
-
-# Flag a cell
-python -m cli flag 1 1
+python -m minesweeper.cli new --state-file game_state.json
+python -m minesweeper.cli reveal 0 0 --state-file game_state.json
+python -m minesweeper.cli reveal 0 1 1 1 --state-file game_state.json
+python -m minesweeper.cli flag 2 3 2 4 --state-file game_state.json
+python -m minesweeper.cli show --state-file game_state.json
 ```
 
-## Technical Details
-- **Language:** Python 3.8+
-- **State Storage:** JSON file in repository
-- **Automation:** GitHub Actions workflow
-- **Trigger:** Issue comments and workflow dispatch
-- **Board Size:** 8x8 with 10 mines (configurable)
+## Project Files
 
-## Future Enhancements
-- [ ] Difficulty levels (easy, medium, hard)
-- [ ] Leaderboard/statistics tracking
-- [ ] Mobile-friendly board rendering
-- [ ] Different board sizes
-- [ ] Multiplayer support
+```text
+minesweeper/
+├── __init__.py
+├── cli.py
+├── game.py
+├── requirements.txt
+└── state_manager.py
+```
+
+## Technical Notes
+
+- Language: Python 3.10 in GitHub Actions.
+- State storage: JSON through `StateManager`.
+- Automation: `.github/workflows/minesweeper.yml`.
+- Dependencies: none outside the Python standard library.

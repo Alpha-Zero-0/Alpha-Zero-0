@@ -5,14 +5,29 @@ Used by GitHub Actions workflow
 
 import argparse
 import sys
-import os
 from pathlib import Path
 
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from minesweeper.game import Minesweeper, GameStatus
+from minesweeper.game import Minesweeper
 from minesweeper.state_manager import StateManager
+
+
+def parse_coordinate_pairs(values: list[str], command: str) -> list[tuple[int, int]]:
+    if not values or len(values) % 2 != 0:
+        raise ValueError(f"Usage: {command} ROW COL [ROW COL ...]")
+
+    coords = []
+    for idx in range(0, len(values), 2):
+        coords.append((int(values[idx]), int(values[idx + 1])))
+    return coords
+
+
+def validate_coordinates(game: Minesweeper, coords: list[tuple[int, int]]) -> None:
+    for row, col in coords:
+        if not (0 <= row < game.size and 0 <= col < game.size):
+            raise ValueError(f"Cell out of bounds: {row} {col}")
 
 
 def format_help(game: Minesweeper) -> str:
@@ -21,10 +36,11 @@ def format_help(game: Minesweeper) -> str:
 **How to Play Minesweeper:**
 
 Commands:
-- `reveal ROW COL` - Reveal a cell (e.g., `reveal 0 0`)
-- `flag ROW COL` - Flag/unflag a cell (e.g., `flag 2 3`)
+- `reveal ROW COL [ROW COL ...]` - Reveal one or more cells (e.g., `reveal 0 0 0 1`)
+- `flag ROW COL [ROW COL ...]` - Flag/unflag one or more cells (e.g., `flag 2 3 2 4`)
 - `new` - Start a new game
 - `show` - Show current board state
+- `help` - Show this help text
 
 Board Coordinates:
 - Rows: 0-{} (top to bottom)
@@ -55,59 +71,65 @@ def main():
             print(format_help(game))
             
         elif action == "reveal":
-            if len(args.action) < 3:
-                print("Usage: reveal ROW COL")
-                sys.exit(1)
-            
-            row, col = int(args.action[1]), int(args.action[2])
+            coords = parse_coordinate_pairs(args.action[1:], "reveal")
             game = manager.load_game()
-            if not (0 <= row < game.size and 0 <= col < game.size):
-                print("Invalid move! Cell out of bounds.")
-                print(game.render_board())
-                sys.exit(1)
+            validate_coordinates(game, coords)
 
-            cell = game.board[row][col]
             if game.winner or game.hitBomb:
                 print(game.render_board(reveal_mines=True))
                 sys.exit(0)
 
-            if cell.revealed or cell.flagged:
-                print("Move accepted!")
-                print(game.render_board())
-                sys.exit(0)
+            applied = 0
+            skipped = 0
 
-            if not game.timerId:
-                game.set_timer()
+            for row, col in coords:
+                cell = game.board[row][col]
+                if cell.revealed or cell.flagged:
+                    skipped += 1
+                    continue
 
-            hit_bomb = game.reveal(row, col)
+                if applied == 0 and not game.timerId:
+                    game.set_timer()
+
+                hit_bomb = game.reveal(row, col)
+                applied += 1
+                if hit_bomb or game.winner:
+                    break
+
             manager.save_game(game)
             
             # Render appropriate output based on game status
-            if hit_bomb:
+            if game.hitBomb:
                 print("💥 **GAME OVER!** You hit a mine! 💥")
                 print(game.render_board(reveal_mines=True))
             elif game.winner:
                 print("🎉 **YOU WON!** 🎉")
                 print(game.render_board())
             else:
-                print("Move accepted!")
+                print(f"Move accepted! Revealed {applied} cell(s).")
+                if skipped:
+                    print(f"Skipped {skipped} already revealed or flagged cell(s).")
                 print(game.render_board())
             
         elif action == "flag":
-            if len(args.action) < 3:
-                print("Usage: flag ROW COL")
-                sys.exit(1)
-            
-            row, col = int(args.action[1]), int(args.action[2])
+            coords = parse_coordinate_pairs(args.action[1:], "flag")
             game = manager.load_game()
-            if not (0 <= row < game.size and 0 <= col < game.size):
-                print("Invalid move! Cell out of bounds.")
-                print(game.render_board())
-                sys.exit(1)
+            validate_coordinates(game, coords)
 
-            game.toggle_flag(row, col)
+            toggled = 0
+            skipped = 0
+            for row, col in coords:
+                was_flagged = game.board[row][col].flagged
+                is_flagged = game.toggle_flag(row, col)
+                if was_flagged != is_flagged:
+                    toggled += 1
+                else:
+                    skipped += 1
+
             manager.save_game(game)
-            print("Flag toggled!")
+            print(f"Flag toggled! Updated {toggled} cell(s).")
+            if skipped:
+                print(f"Skipped {skipped} revealed cell(s).")
             print(game.render_board())
             
         elif action == "show":
@@ -129,7 +151,7 @@ def main():
             sys.exit(1)
             
     except ValueError as e:
-        print(f"Error: Invalid input - {e}")
+        print(f"Error: {e}")
         sys.exit(1)
     except Exception as e:
         print(f"Error: {e}")
