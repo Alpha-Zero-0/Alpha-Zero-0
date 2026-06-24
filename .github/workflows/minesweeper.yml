@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       action:
-        description: 'Game action (new, show, help)'
+        description: 'Game action (new, show, help, leaderboard)'
         required: true
         default: 'show'
         type: choice
@@ -14,6 +14,7 @@ on:
           - new
           - show
           - help
+          - leaderboard
 
 jobs:
   minesweeper:
@@ -37,17 +38,21 @@ jobs:
         run: |
           if [[ "${{ github.event_name }}" == "issue_comment" ]]; then
             COMMENT="${{ github.event.comment.body }}"
+            PLAYER="${{ github.event.comment.user.login }}"
             {
               echo 'comment<<EOF'
               echo "$COMMENT"
               echo 'EOF'
+              echo "player=$PLAYER"
             } >> "$GITHUB_OUTPUT"
           else
             ACTION="${{ github.event.inputs.action }}"
+            PLAYER="${{ github.actor }}"
             {
               echo 'comment<<EOF'
               echo "$ACTION"
               echo 'EOF'
+              echo "player=$PLAYER"
             } >> "$GITHUB_OUTPUT"
           fi
 
@@ -56,28 +61,36 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           COMMENT="${{ steps.parse.outputs.comment }}"
+          PLAYER="${{ steps.parse.outputs.player }}"
           
           # Extract action and coordinates from comment
           # Supported formats: "reveal 0 0", "reveal 0 0 0 1",
-          # "flag 1 2", "flag 1 2 1 3", "new", "show", "help"
+          # "flag 1 2", "flag 1 2 1 3", "new", "show", "help", "leaderboard"
           
           if [[ "$COMMENT" =~ ^reveal[[:space:]]+[0-9]+[[:space:]]+[0-9]+([[:space:]]+[0-9]+[[:space:]]+[0-9]+)*[[:space:]]*$ ]]; then
             read -ra ACTION_PARTS <<< "$COMMENT"
-            python -m minesweeper.cli "${ACTION_PARTS[@]}" --state-file game_state.json > game_output.txt 2>&1
+            python -m minesweeper.cli "${ACTION_PARTS[@]}" --state-file game_state.json --leaderboard-file minesweeper_leaderboard.json --player "$PLAYER" > game_output.txt 2>&1
           elif [[ "$COMMENT" =~ ^flag[[:space:]]+[0-9]+[[:space:]]+[0-9]+([[:space:]]+[0-9]+[[:space:]]+[0-9]+)*[[:space:]]*$ ]]; then
             read -ra ACTION_PARTS <<< "$COMMENT"
-            python -m minesweeper.cli "${ACTION_PARTS[@]}" --state-file game_state.json > game_output.txt 2>&1
+            python -m minesweeper.cli "${ACTION_PARTS[@]}" --state-file game_state.json --leaderboard-file minesweeper_leaderboard.json --player "$PLAYER" > game_output.txt 2>&1
           elif [[ "$COMMENT" =~ ^new ]]; then
-            python -m minesweeper.cli new --state-file game_state.json > game_output.txt 2>&1
+            python -m minesweeper.cli new --state-file game_state.json --leaderboard-file minesweeper_leaderboard.json --player "$PLAYER" > game_output.txt 2>&1
           elif [[ "$COMMENT" =~ ^help ]]; then
-            python -m minesweeper.cli help --state-file game_state.json > game_output.txt 2>&1
+            python -m minesweeper.cli help --state-file game_state.json --leaderboard-file minesweeper_leaderboard.json --player "$PLAYER" > game_output.txt 2>&1
+          elif [[ "$COMMENT" =~ ^leaderboard ]]; then
+            python -m minesweeper.cli leaderboard --state-file game_state.json --leaderboard-file minesweeper_leaderboard.json --player "$PLAYER" > game_output.txt 2>&1
           else
-            python -m minesweeper.cli show --state-file game_state.json > game_output.txt 2>&1
+            python -m minesweeper.cli show --state-file game_state.json --leaderboard-file minesweeper_leaderboard.json --player "$PLAYER" > game_output.txt 2>&1
           fi
 
           if [[ ! -s game_output.txt ]]; then
             echo "No game output was produced." > game_output.txt
           fi
+
+      - name: Sync README leaderboard
+        run: |
+          cd ${{ github.workspace }}
+          python -m minesweeper.sync_readme_leaderboard --readme README.md --leaderboard-file minesweeper_leaderboard.json
 
       - name: Commit game state
         run: |
@@ -85,11 +98,15 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           
+          git add README.md
           if [ -f game_state.json ]; then
             git add game_state.json
-            git diff --cached --exit-code || git commit -m "Update game state"
-            git push
           fi
+          if [ -f minesweeper_leaderboard.json ]; then
+            git add minesweeper_leaderboard.json
+          fi
+          git diff --cached --exit-code || git commit -m "Update game state"
+          git push
 
       - name: Comment with result
         if: github.event_name == 'issue_comment'

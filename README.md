@@ -35,3 +35,79 @@
 
 ## LEETCODE
 ![LeetCode Heatmap](https://leetcard.jacoblin.cool/HIHIHIHIA?theme=dark&ext=heatmap)
+
+## Mini Game
+
+### Minesweeper
+
+Play Minesweeper through GitHub issue comments. The game lives in the `minesweeper/` folder, and GitHub Actions saves the board to `game_state.json` after every move.
+
+Comment one of these commands on an issue:
+
+```text
+new
+show
+help
+leaderboard
+reveal ROW COL
+reveal ROW COL ROW COL ...
+flag ROW COL
+flag ROW COL ROW COL ...
+```
+
+Examples:
+
+```text
+reveal 0 0 0 1 1 1
+flag 2 3 2 4 3 4
+```
+
+Rows and columns are zero-indexed. The default board is 16x16 with 40 mines, so valid coordinates are `0` through `15`.
+
+Board symbols:
+
+| Symbol | Meaning |
+| --- | --- |
+| `■` | Hidden cell |
+| `F` | Flagged cell |
+| `X` | Incorrect flag after game over |
+| `*` | Mine after game over |
+| blank | Revealed cell with no adjacent mines |
+| `1`-`8` | Number of adjacent mines |
+
+Rules:
+
+- The first reveal is always safe, including the surrounding 3x3 area when possible.
+- Blank cells flood-reveal connected blank cells and their bordering numbers.
+- Revealing a mine ends the game and records a leaderboard loss for the player who triggered it.
+- Revealing every non-mine cell wins the game and records a leaderboard win for the player who solved it.
+- Batch reveal and flag commands are validated before the board changes.
+- A batch reveal is applied from left to right and stops if the game is won or a mine is hit.
+
+### Leaderboard
+
+The leaderboard tracks the top 5 users who solved the most games and the top 5 users who hit the most mines.
+
+<!-- MINESWEEPER_LEADERBOARD_START -->
+### Top Solvers
+
+| Rank | Player | Wins | Losses |
+| ---: | --- | ---: | ---: |
+| - | No completed games yet | 0 | 0 |
+
+### Most Exploded
+
+| Rank | Player | Losses | Wins |
+| ---: | --- | ---: | ---: |
+| - | No completed games yet | 0 | 0 |
+<!-- MINESWEEPER_LEADERBOARD_END -->
+
+Local commands from the repository root:
+
+```bash
+python -m minesweeper.cli new --state-file game_state.json
+python -m minesweeper.cli reveal 0 0 --state-file game_state.json
+python -m minesweeper.cli reveal 0 1 1 1 --state-file game_state.json
+python -m minesweeper.cli flag 2 3 2 4 --state-file game_state.json
+python -m minesweeper.cli leaderboard --leaderboard-file minesweeper_leaderboard.json
+```

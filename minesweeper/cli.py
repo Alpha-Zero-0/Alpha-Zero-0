@@ -11,6 +11,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from minesweeper.game import Minesweeper
+from minesweeper.leaderboard import Leaderboard
 from minesweeper.state_manager import StateManager
 
 
@@ -41,6 +42,7 @@ Commands:
 - `new` - Start a new game
 - `show` - Show current board state
 - `help` - Show this help text
+- `leaderboard` - Show the top Minesweeper players
 
 Board Coordinates:
 - Rows: 0-{} (top to bottom)
@@ -54,13 +56,16 @@ Current Board:
 
 def main():
     parser = argparse.ArgumentParser(description="Minesweeper CLI")
-    parser.add_argument("action", nargs="*", help="Action: reveal, flag, new, show, help")
+    parser.add_argument("action", nargs="*", help="Action: reveal, flag, new, show, help, leaderboard")
     parser.add_argument("--state-file", default="game_state.json", help="State file location")
+    parser.add_argument("--leaderboard-file", default="minesweeper_leaderboard.json", help="Leaderboard file location")
+    parser.add_argument("--player", default="local", help="Player username for win/loss tracking")
     
     args = parser.parse_args()
     action = args.action[0].lower() if args.action else "show"
     
     manager = StateManager(args.state_file)
+    leaderboard = Leaderboard(args.leaderboard_file)
     
     try:
         if action == "new":
@@ -100,11 +105,17 @@ def main():
             
             # Render appropriate output based on game status
             if game.hitBomb:
+                leaderboard.record_result(args.player, won=False)
                 print("💥 **GAME OVER!** You hit a mine! 💥")
                 print(game.render_board(reveal_mines=True))
+                print("")
+                print(leaderboard.render_markdown())
             elif game.winner:
+                leaderboard.record_result(args.player, won=True)
                 print("🎉 **YOU WON!** 🎉")
                 print(game.render_board())
+                print("")
+                print(leaderboard.render_markdown())
             else:
                 print(f"Move accepted! Revealed {applied} cell(s).")
                 if skipped:
@@ -144,6 +155,9 @@ def main():
         elif action == "help":
             game = manager.load_game()
             print(format_help(game))
+
+        elif action == "leaderboard":
+            print(leaderboard.render_markdown())
             
         else:
             print(f"Unknown action: {action}")
