@@ -1,5 +1,3 @@
-"""Python translation of the JavaScript Minesweeper game logic."""
-
 from __future__ import annotations
 
 from collections import deque
@@ -15,6 +13,12 @@ WRONG_BOMB_IMAGE = "❌"
 SMILE_FACE = "🙂"
 DEAD_FACE = "☹"
 COOL_FACE = "😎"
+BOARD_BOMB = "*"
+BOARD_FLAG = "F"
+BOARD_WRONG_FLAG = "X"
+BOARD_HIDDEN = "#"
+BOARD_EMPTY = " "
+CELL_WIDTH = 3
 
 SIZE_LOOKUP = {
     9: {"totalBombs": 10, "tableWidth": "245px"},
@@ -249,16 +253,45 @@ class Minesweeper:
         self.bombCount += -1 if new_flagged else 1
         return new_flagged
 
-    def _display_cell(self, cell: Cell) -> str:
+    def _display_cell(self, cell: Cell, reveal_mines: bool = False) -> str:
+        if reveal_mines:
+            if cell.bomb:
+                return BOARD_BOMB
+            if cell.flagged:
+                return BOARD_WRONG_FLAG
+            if cell.revealed and cell.adjBombs:
+                return str(cell.adjBombs)
+            if cell.revealed:
+                return BOARD_EMPTY
+            return BOARD_HIDDEN
+
         if cell.flagged:
-            return FLAG_IMAGE
+            return BOARD_FLAG
         if cell.revealed:
             if cell.bomb:
-                return BOMB_IMAGE
+                return BOARD_BOMB
             if cell.adjBombs:
                 return str(cell.adjBombs)
-            return " "
-        return "■"
+            return BOARD_EMPTY
+        return BOARD_HIDDEN
+
+    def _format_cell(self, cell: Cell, reveal_mines: bool = False) -> str:
+        return f"{self._display_cell(cell, reveal_mines):^{CELL_WIDTH}}"
+
+    def _board_header(self) -> str:
+        columns = "|".join(f"{idx:^{CELL_WIDTH}}" for idx in range(self.size))
+        return f"    |{columns}|"
+
+    def _board_separator(self) -> str:
+        return f"----+{'+'.join('-' * CELL_WIDTH for _ in range(self.size))}+"
+
+    def _render_board_rows(self, reveal_mines: bool = False) -> List[str]:
+        lines = [self._board_header(), self._board_separator()]
+        for row_idx, row in enumerate(self.board):
+            rendered = "|".join(self._format_cell(cell, reveal_mines) for cell in row)
+            lines.append(f"{row_idx:>3} |{rendered}|")
+            lines.append(self._board_separator())
+        return lines
 
     def render(self) -> str:
         bomb_counter = str(self.bombCount).zfill(3)
@@ -274,13 +307,8 @@ class Minesweeper:
             "╚════════════════════════════════════╝",
             "",
             "```",
-            "   " + " ".join(f"{idx:>2}" for idx in range(self.size)),
         ]
-
-        for row_idx, row in enumerate(self.board):
-            rendered = "  ".join(f"{self._display_cell(cell):>1}" for cell in row)
-            lines.append(f"{row_idx:>2} {rendered}")
-
+        lines.extend(self._render_board_rows())
         lines.append("```")
 
         if self.hitBomb:
@@ -304,22 +332,8 @@ class Minesweeper:
             "╚════════════════════════════════════╝",
             "",
             "```",
-            "   " + " ".join(f"{idx:>2}" for idx in range(self.size)),
         ]
-        for row_idx, row in enumerate(self.board):
-            rendered = []
-            for cell in row:
-                if cell.bomb:
-                    rendered.append(BOMB_IMAGE)
-                elif cell.flagged:
-                    rendered.append(WRONG_BOMB_IMAGE)
-                elif cell.revealed and cell.adjBombs:
-                    rendered.append(str(cell.adjBombs))
-                elif cell.revealed:
-                    rendered.append(" ")
-                else:
-                    rendered.append("■")
-            lines.append(f"{row_idx:>2} " + "  ".join(f"{cell:>1}" for cell in rendered))
+        lines.extend(self._render_board_rows(reveal_mines=True))
         lines.append("```")
         lines.append("")
         lines.append("💥 **GAME OVER!**")
