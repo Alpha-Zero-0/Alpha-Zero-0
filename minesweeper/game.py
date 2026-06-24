@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections import deque
 import random
 from dataclasses import dataclass
 from enum import Enum
@@ -95,14 +96,7 @@ class Cell:
             return False
 
         self.revealed = True
-        if self.bomb:
-            return True
-        if self.adjBombs == 0:
-            adj = self.get_adj_cells()
-            for cell in adj:
-                if not cell.revealed:
-                    cell.reveal()
-        return False
+        return self.bomb
 
 
 class Minesweeper:
@@ -123,10 +117,11 @@ class Minesweeper:
         self.elapsedTime = 0
         self.timerId = None
         self.winner = False
+        self._mines_placed = False
         self._build_table()
         self.board = self._build_arrays()
         self._build_cells()
-        self.bombCount = self.get_bomb_count()
+        self.bombCount = self.total_bombs
 
     def _build_arrays(self) -> List[List[Cell]]:
         arr: List[List[Optional[Cell]]] = [[None for _ in range(self.size)] for _ in range(self.size)]
@@ -136,8 +131,34 @@ class Minesweeper:
         for row_idx, row_arr in enumerate(self.board):
             for col_idx, _ in enumerate(row_arr):
                 self.board[row_idx][col_idx] = Cell(row_idx, col_idx, self.board)
-        self.add_bombs()
+
+    def _safe_zone(self, row: int, col: int) -> set[tuple[int, int]]:
+        safe_zone = {(row, col)}
+        for adj_row in range(max(0, row - 1), min(self.size, row + 2)):
+            for adj_col in range(max(0, col - 1), min(self.size, col + 2)):
+                safe_zone.add((adj_row, adj_col))
+        return safe_zone
+
+    def _place_bombs(self, safe_row: int, safe_col: int) -> None:
+        if self._mines_placed:
+            return
+
+        safe_zone = self._safe_zone(safe_row, safe_col)
+        available_cells = [
+            cell
+            for row in self.board
+            for cell in row
+            if (cell.row, cell.col) not in safe_zone
+        ]
+
+        if self.total_bombs > len(available_cells):
+            raise ValueError("Not enough cells to place mines while preserving the first-click safe zone")
+
+        for cell in random.sample(available_cells, self.total_bombs):
+            cell.bomb = True
+
         self.run_code_for_all_cells(lambda cell: cell.calc_adj_bombs())
+        self._mines_placed = True
 
     def _build_table(self) -> None:
         # Kept for structural parity with the JS version; the CLI uses render().
@@ -164,22 +185,31 @@ class Minesweeper:
             count += sum(1 for cell in row if cell.bomb)
         return count
 
-    def add_bombs(self) -> None:
-        current_total_bombs = self.total_bombs
-        while current_total_bombs != 0:
-            row = random.randrange(self.size)
-            col = random.randrange(self.size)
-            current_cell = self.board[row][col]
-            if not current_cell.bomb:
-                current_cell.bomb = True
-                current_total_bombs -= 1
-
     def get_winner(self) -> bool:
         for row in self.board:
             for cell in row:
                 if not cell.revealed and not cell.bomb:
                     return False
         return True
+
+    def _flood_reveal(self, row: int, col: int) -> bool:
+        queue = deque([self.board[row][col]])
+
+        while queue:
+            cell = queue.popleft()
+            if cell.revealed or cell.flagged:
+                continue
+
+            hit_bomb = cell.reveal()
+            if hit_bomb:
+                return True
+
+            if cell.adjBombs == 0:
+                for adj_cell in cell.get_adj_cells():
+                    if not adj_cell.revealed and not adj_cell.flagged:
+                        queue.append(adj_cell)
+
+        return False
 
     def reveal(self, row: int, col: int) -> bool:
         if not (0 <= row < self.size and 0 <= col < self.size):
@@ -188,15 +218,21 @@ class Minesweeper:
             return False
 
         cell = self.board[row][col]
-        hit_bomb = cell.reveal()
+        if cell.revealed or cell.flagged:
+            return False
+
+        if not self._mines_placed:
+            self._place_bombs(row, col)
+
+        hit_bomb = self._flood_reveal(row, col)
         if hit_bomb:
             self.hitBomb = True
-            self.status = "lost"
+            self.status = GameStatus.LOST.value
             self.reveal_all()
         else:
             self.winner = self.get_winner()
             if self.winner:
-                self.status = "won"
+                self.status = GameStatus.WON.value
         return hit_bomb
 
     def toggle_flag(self, row: int, col: int) -> bool:
@@ -292,14 +328,20 @@ class Minesweeper:
     def get_state(self) -> dict:
         return {
             "size": self.size,
+            "width": self.width,
+            "height": self.height,
             "total_bombs": self.total_bombs,
+            "mine_count": self.total_bombs,
             "bombCount": self.bombCount,
             "timeElapsed": self.timeElapsed,
+            "moves": self.elapsedTime,
             "adjBombs": self.adjBombs,
             "hitBomb": self.hitBomb,
             "elapsedTime": self.elapsedTime,
             "timerId": self.timerId,
             "winner": self.winner,
+            "status": self.status,
+            "minesPlaced": self._mines_placed,
             "board": [[cell_to_state(cell) for cell in row] for row in self.board],
         }
 
@@ -329,6 +371,7 @@ class Minesweeper:
             for row in game.board:
                 for cell in row:
                     cell.board = game.board
+            game._mines_placed = state.get("minesPlaced", any(cell.bomb for row in game.board for cell in row))
         return game
 
 
