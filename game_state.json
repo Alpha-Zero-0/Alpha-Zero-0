@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-06-25T18:55:24.562976",
+  "timestamp": "2026-06-25T18:55:58.781892",
   "game": {
     "size": 16,
     "width": 16,
     "height": 16,
     "total_bombs": 40,
     "mine_count": 40,
-    "bombCount": 40,
+    "bombCount": 39,
     "timeElapsed": 1,
     "moves": 1,
     "adjBombs": null,
@@ -1573,7 +1573,7 @@
           "col": 10,
           "bomb": true,
           "revealed": false,
-          "flagged": false,
+          "flagged": true,
           "adjBombs": 1,
           "adjacent_mines": 1
         },
