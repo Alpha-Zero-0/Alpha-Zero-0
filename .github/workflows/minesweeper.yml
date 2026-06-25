@@ -98,6 +98,9 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           
+          # Pull the latest changes to prevent push rejections
+          git pull origin main --rebase
+          
           git add README.md
           if [ -f game_state.json ]; then
             git add game_state.json
