@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-25T18:54:30.581827",
+  "timestamp": "2026-06-25T18:55:24.562976",
   "game": {
     "size": 16,
     "width": 16,
@@ -7,25 +7,25 @@
     "total_bombs": 40,
     "mine_count": 40,
     "bombCount": 40,
-    "timeElapsed": 0,
-    "moves": 0,
+    "timeElapsed": 1,
+    "moves": 1,
     "adjBombs": null,
     "hitBomb": false,
-    "elapsedTime": 0,
+    "elapsedTime": 1,
     "timerId": null,
     "winner": false,
     "status": "active",
-    "minesPlaced": false,
+    "minesPlaced": true,
     "board": [
       [
         {
           "row": 0,
           "col": 0,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 0,
@@ -33,8 +33,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 0,
@@ -42,26 +42,26 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 0,
           "col": 3,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 0,
           "col": 4,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 0,
@@ -69,8 +69,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 0,
@@ -87,17 +87,17 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 0,
           "col": 8,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 0,
@@ -105,8 +105,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 0,
@@ -167,11 +167,11 @@
         {
           "row": 1,
           "col": 0,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 1,
@@ -179,8 +179,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 1,
@@ -188,8 +188,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 1,
@@ -197,8 +197,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 1,
@@ -206,8 +206,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 1,
@@ -215,8 +215,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 1,
@@ -233,17 +233,17 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 1,
           "col": 8,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 1,
@@ -251,8 +251,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 1,
@@ -316,8 +316,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 2,
@@ -325,8 +325,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 2,
@@ -334,8 +334,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 2,
@@ -343,8 +343,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 2,
@@ -370,8 +370,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 2,
@@ -379,8 +379,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 2,
@@ -388,8 +388,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 2,
@@ -397,8 +397,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 2,
@@ -424,8 +424,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 2,
@@ -433,8 +433,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 2,
@@ -442,8 +442,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 2,
@@ -451,8 +451,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         }
       ],
       [
@@ -471,13 +471,13 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 3,
           "col": 2,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
           "adjBombs": 0,
@@ -489,8 +489,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 3,
@@ -516,13 +516,13 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 3,
           "col": 7,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
           "adjBombs": 0,
@@ -534,8 +534,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 3,
@@ -543,8 +543,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 3,
@@ -552,8 +552,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 3,
@@ -561,8 +561,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 3,
@@ -570,26 +570,26 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 3,
           "col": 13,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 3,
           "col": 14,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 3,
@@ -597,8 +597,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         }
       ],
       [
@@ -617,8 +617,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 4,
@@ -626,8 +626,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 4,
@@ -635,8 +635,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 4,
@@ -644,8 +644,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 4,
@@ -653,8 +653,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 4,
@@ -662,8 +662,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 3,
+          "adjacent_mines": 3
         },
         {
           "row": 4,
@@ -671,8 +671,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 3,
+          "adjacent_mines": 3
         },
         {
           "row": 4,
@@ -680,8 +680,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 3,
+          "adjacent_mines": 3
         },
         {
           "row": 4,
@@ -689,17 +689,17 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 4,
           "col": 10,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 4,
@@ -707,8 +707,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 4,
@@ -716,8 +716,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 4,
@@ -725,8 +725,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 3,
+          "adjacent_mines": 3
         },
         {
           "row": 4,
@@ -734,17 +734,17 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 4,
+          "adjacent_mines": 4
         },
         {
           "row": 4,
           "col": 15,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         }
       ],
       [
@@ -790,13 +790,13 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 5,
           "col": 5,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
           "adjBombs": 0,
@@ -808,26 +808,26 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 5,
           "col": 7,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 5,
           "col": 8,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 5,
@@ -835,8 +835,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 3,
+          "adjacent_mines": 3
         },
         {
           "row": 5,
@@ -844,17 +844,17 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 3,
+          "adjacent_mines": 3
         },
         {
           "row": 5,
           "col": 11,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 5,
@@ -862,8 +862,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 5,
@@ -871,11 +871,303 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
+          "adjBombs": 1,
+          "adjacent_mines": 1
+        },
+        {
+          "row": 5,
+          "col": 14,
+          "bomb": true,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 1,
+          "adjacent_mines": 1
+        },
+        {
+          "row": 5,
+          "col": 15,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 2,
+          "adjacent_mines": 2
+        }
+      ],
+      [
+        {
+          "row": 6,
+          "col": 0,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 2,
+          "adjacent_mines": 2
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 2,
+          "adjacent_mines": 2
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 2,
+          "adjacent_mines": 2
+        },
+        {
+          "row": 6,
+          "col": 3,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 2,
+          "adjacent_mines": 2
+        },
+        {
+          "row": 6,
+          "col": 4,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 3,
+          "adjacent_mines": 3
+        },
+        {
+          "row": 6,
+          "col": 5,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 2,
+          "adjacent_mines": 2
+        },
+        {
+          "row": 6,
+          "col": 6,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 2,
+          "adjacent_mines": 2
+        },
+        {
+          "row": 6,
+          "col": 7,
+          "bomb": false,
+          "revealed": true,
+          "flagged": false,
+          "adjBombs": 2,
+          "adjacent_mines": 2
+        },
+        {
+          "row": 6,
+          "col": 8,
+          "bomb": false,
+          "revealed": true,
+          "flagged": false,
+          "adjBombs": 2,
+          "adjacent_mines": 2
+        },
+        {
+          "row": 6,
+          "col": 9,
+          "bomb": false,
+          "revealed": true,
+          "flagged": false,
+          "adjBombs": 2,
+          "adjacent_mines": 2
+        },
+        {
+          "row": 6,
+          "col": 10,
+          "bomb": true,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 1,
+          "adjacent_mines": 1
+        },
+        {
+          "row": 6,
+          "col": 11,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 2,
+          "adjacent_mines": 2
+        },
+        {
+          "row": 6,
+          "col": 12,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 1,
+          "adjacent_mines": 1
+        },
+        {
+          "row": 6,
+          "col": 13,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 1,
+          "adjacent_mines": 1
+        },
+        {
+          "row": 6,
+          "col": 14,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 1,
+          "adjacent_mines": 1
+        },
+        {
+          "row": 6,
+          "col": 15,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 1,
+          "adjacent_mines": 1
+        }
+      ],
+      [
+        {
+          "row": 7,
+          "col": 0,
+          "bomb": true,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 1,
+          "adjacent_mines": 1
+        },
+        {
+          "row": 7,
+          "col": 1,
+          "bomb": true,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 1,
+          "adjacent_mines": 1
+        },
+        {
+          "row": 7,
+          "col": 2,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 2,
+          "adjacent_mines": 2
+        },
+        {
+          "row": 7,
+          "col": 3,
+          "bomb": true,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 1,
+          "adjacent_mines": 1
+        },
+        {
+          "row": 7,
+          "col": 4,
+          "bomb": true,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 2,
+          "adjacent_mines": 2
+        },
+        {
+          "row": 7,
+          "col": 5,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 3,
+          "adjacent_mines": 3
+        },
+        {
+          "row": 7,
+          "col": 6,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 2,
+          "adjacent_mines": 2
+        },
+        {
+          "row": 7,
+          "col": 7,
+          "bomb": false,
+          "revealed": true,
+          "flagged": false,
+          "adjBombs": 1,
+          "adjacent_mines": 1
+        },
+        {
+          "row": 7,
+          "col": 8,
+          "bomb": false,
+          "revealed": true,
+          "flagged": false,
           "adjBombs": 0,
           "adjacent_mines": 0
         },
         {
-          "row": 5,
+          "row": 7,
+          "col": 9,
+          "bomb": false,
+          "revealed": true,
+          "flagged": false,
+          "adjBombs": 1,
+          "adjacent_mines": 1
+        },
+        {
+          "row": 7,
+          "col": 10,
+          "bomb": false,
+          "revealed": true,
+          "flagged": false,
+          "adjBombs": 1,
+          "adjacent_mines": 1
+        },
+        {
+          "row": 7,
+          "col": 11,
+          "bomb": false,
+          "revealed": true,
+          "flagged": false,
+          "adjBombs": 2,
+          "adjacent_mines": 2
+        },
+        {
+          "row": 7,
+          "col": 12,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 1,
+          "adjacent_mines": 1
+        },
+        {
+          "row": 7,
+          "col": 13,
+          "bomb": false,
+          "revealed": false,
+          "flagged": false,
+          "adjBombs": 1,
+          "adjacent_mines": 1
+        },
+        {
+          "row": 7,
           "col": 14,
           "bomb": false,
           "revealed": false,
@@ -884,7 +1176,7 @@
           "adjacent_mines": 0
         },
         {
-          "row": 5,
+          "row": 7,
           "col": 15,
           "bomb": false,
           "revealed": false,
@@ -895,305 +1187,13 @@
       ],
       [
         {
-          "row": 6,
-          "col": 0,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 6,
-          "col": 2,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 6,
-          "col": 3,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 6,
-          "col": 4,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 6,
-          "col": 5,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 6,
-          "col": 6,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 6,
-          "col": 7,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 6,
-          "col": 8,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 6,
-          "col": 9,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 6,
-          "col": 10,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 6,
-          "col": 11,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 6,
-          "col": 12,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 6,
-          "col": 13,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 6,
-          "col": 14,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 6,
-          "col": 15,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        }
-      ],
-      [
-        {
-          "row": 7,
-          "col": 0,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 7,
-          "col": 1,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 7,
-          "col": 2,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 7,
-          "col": 3,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 7,
-          "col": 4,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 7,
-          "col": 5,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 7,
-          "col": 6,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 7,
-          "col": 7,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 7,
-          "col": 8,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 7,
-          "col": 9,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 7,
-          "col": 10,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 7,
-          "col": 11,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 7,
-          "col": 12,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 7,
-          "col": 13,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 7,
-          "col": 14,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        },
-        {
-          "row": 7,
-          "col": 15,
-          "bomb": false,
-          "revealed": false,
-          "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
-        }
-      ],
-      [
-        {
           "row": 8,
           "col": 0,
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 3,
+          "adjacent_mines": 3
         },
         {
           "row": 8,
@@ -1201,8 +1201,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 3,
+          "adjacent_mines": 3
         },
         {
           "row": 8,
@@ -1210,8 +1210,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 8,
@@ -1219,8 +1219,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 8,
@@ -1228,41 +1228,41 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 3,
+          "adjacent_mines": 3
         },
         {
           "row": 8,
           "col": 5,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 8,
           "col": 6,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 8,
           "col": 7,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 8,
           "col": 8,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 0,
           "adjacent_mines": 0
@@ -1271,7 +1271,7 @@
           "row": 8,
           "col": 9,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 0,
           "adjacent_mines": 0
@@ -1280,7 +1280,7 @@
           "row": 8,
           "col": 10,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 0,
           "adjacent_mines": 0
@@ -1289,15 +1289,15 @@
           "row": 8,
           "col": 11,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 8,
           "col": 12,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
           "adjBombs": 0,
@@ -1309,8 +1309,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 8,
@@ -1335,7 +1335,7 @@
         {
           "row": 9,
           "col": 0,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
           "adjBombs": 0,
@@ -1347,8 +1347,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 9,
@@ -1356,8 +1356,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 9,
@@ -1365,8 +1365,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 9,
@@ -1374,8 +1374,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 9,
@@ -1383,8 +1383,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 3,
+          "adjacent_mines": 3
         },
         {
           "row": 9,
@@ -1392,23 +1392,23 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 3,
+          "adjacent_mines": 3
         },
         {
           "row": 9,
           "col": 7,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 9,
           "col": 8,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 0,
           "adjacent_mines": 0
@@ -1417,28 +1417,28 @@
           "row": 9,
           "col": 9,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 9,
           "col": 10,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 9,
           "col": 11,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 9,
@@ -1446,8 +1446,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 9,
@@ -1455,8 +1455,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 9,
@@ -1484,8 +1484,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 10,
@@ -1493,8 +1493,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 10,
@@ -1502,13 +1502,13 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 10,
           "col": 3,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
           "adjBombs": 0,
@@ -1520,8 +1520,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 10,
@@ -1529,53 +1529,53 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 10,
           "col": 6,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 10,
           "col": 7,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 10,
           "col": 8,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 10,
           "col": 9,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 10,
           "col": 10,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 10,
@@ -1583,8 +1583,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 10,
@@ -1592,8 +1592,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 10,
@@ -1648,8 +1648,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 11,
@@ -1657,8 +1657,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 11,
@@ -1666,17 +1666,17 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 11,
           "col": 5,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 11,
@@ -1684,8 +1684,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 11,
@@ -1693,17 +1693,17 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 11,
           "col": 8,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 11,
@@ -1711,8 +1711,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 3,
+          "adjacent_mines": 3
         },
         {
           "row": 11,
@@ -1720,17 +1720,17 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 4,
+          "adjacent_mines": 4
         },
         {
           "row": 11,
           "col": 11,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 11,
@@ -1738,8 +1738,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 11,
@@ -1776,8 +1776,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 12,
@@ -1785,8 +1785,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 12,
@@ -1812,8 +1812,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 12,
@@ -1821,8 +1821,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 12,
@@ -1830,8 +1830,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 12,
@@ -1839,8 +1839,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 12,
@@ -1848,17 +1848,17 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 3,
+          "adjacent_mines": 3
         },
         {
           "row": 12,
           "col": 9,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 12,
@@ -1866,17 +1866,17 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 4,
+          "adjacent_mines": 4
         },
         {
           "row": 12,
           "col": 11,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 12,
@@ -1884,8 +1884,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 12,
@@ -1919,7 +1919,7 @@
         {
           "row": 13,
           "col": 0,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
           "adjBombs": 0,
@@ -1931,8 +1931,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 13,
@@ -1976,8 +1976,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 13,
@@ -1985,8 +1985,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 13,
@@ -1994,17 +1994,17 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 3,
+          "adjacent_mines": 3
         },
         {
           "row": 13,
           "col": 9,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 13,
@@ -2012,8 +2012,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 3,
+          "adjacent_mines": 3
         },
         {
           "row": 13,
@@ -2021,8 +2021,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 13,
@@ -2030,8 +2030,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 13,
@@ -2048,8 +2048,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 13,
@@ -2057,8 +2057,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         }
       ],
       [
@@ -2068,8 +2068,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 14,
@@ -2077,8 +2077,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 14,
@@ -2122,17 +2122,17 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 14,
           "col": 7,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 14,
@@ -2140,8 +2140,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 3,
+          "adjacent_mines": 3
         },
         {
           "row": 14,
@@ -2149,8 +2149,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 14,
@@ -2158,8 +2158,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 14,
@@ -2194,17 +2194,17 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 14,
           "col": 15,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         }
       ],
       [
@@ -2268,17 +2268,17 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 15,
           "col": 7,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         },
         {
           "row": 15,
@@ -2286,8 +2286,8 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 15,
@@ -2340,17 +2340,17 @@
           "bomb": false,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 2,
+          "adjacent_mines": 2
         },
         {
           "row": 15,
           "col": 15,
-          "bomb": false,
+          "bomb": true,
           "revealed": false,
           "flagged": false,
-          "adjBombs": 0,
-          "adjacent_mines": 0
+          "adjBombs": 1,
+          "adjacent_mines": 1
         }
       ]
     ]
