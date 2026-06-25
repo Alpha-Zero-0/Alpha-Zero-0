@@ -106,14 +106,12 @@ jobs:
             git add minesweeper_leaderboard.json
           fi
           
-          if ! git diff --cached --quiet; then
-            git commit -m "Update game state"
-            
-            git pull --rebase
-            git push
-          else
-            echo "No changes to save."
-          fi
+          git diff --cached --exit-code || git commit -m "Update game state"
+          
+          # This dynamic variable ensures it works whether your branch is main or master
+          git pull origin ${{ github.event.repository.default_branch }} --rebase
+          
+          git push
 
       - name: Comment with result
         if: github.event_name == 'issue_comment'
