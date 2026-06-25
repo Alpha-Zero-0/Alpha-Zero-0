@@ -16,9 +16,10 @@ COOL_FACE = "😎"
 BOARD_BOMB = "*"
 BOARD_FLAG = "🚩"
 BOARD_WRONG_FLAG = "X"
-BOARD_HIDDEN = "■"
+BOARD_HIDDEN = "⬜" 
 BOARD_EMPTY = " "
 CELL_WIDTH = 3
+# ■
 
 SIZE_LOOKUP = {
     9: {"totalBombs": 10, "tableWidth": "245px"},
