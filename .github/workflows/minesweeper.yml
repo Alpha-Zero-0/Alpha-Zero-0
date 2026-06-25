@@ -27,6 +27,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      
+      - name: Pull latest game state
+        run: |
+          cd ${{ github.workspace }}
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git fetch origin ${{ github.event.repository.default_branch }}
+          git checkout origin/${{ github.event.repository.default_branch }} -- game_state.json minesweeper_leaderboard.json 2>/dev/null || true
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -97,7 +105,7 @@ jobs:
           cd ${{ github.workspace }}
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          
+
           git add README.md
           if [ -f game_state.json ]; then
             git add game_state.json
@@ -105,12 +113,14 @@ jobs:
           if [ -f minesweeper_leaderboard.json ]; then
             git add minesweeper_leaderboard.json
           fi
-          
-          git diff --cached --exit-code || git commit -m "Update game state"
-          
-          # This dynamic variable ensures it works whether your branch is main or master
-          git pull origin ${{ github.event.repository.default_branch }} --rebase
-          
+
+          git diff --cached --quiet && echo "Nothing to commit" && exit 0
+
+          git commit -m "Update game state [skip ci]"
+
+          # Rebase onto latest remote to avoid push conflicts
+          git pull origin ${{ github.event.repository.default_branch }} --rebase --autostash
+
           git push
 
       - name: Comment with result
