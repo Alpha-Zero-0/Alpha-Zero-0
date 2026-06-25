@@ -98,9 +98,6 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           
-          # Pull the latest changes to prevent push rejections
-          git pull origin main --rebase
-          
           git add README.md
           if [ -f game_state.json ]; then
             git add game_state.json
@@ -108,8 +105,15 @@ jobs:
           if [ -f minesweeper_leaderboard.json ]; then
             git add minesweeper_leaderboard.json
           fi
-          git diff --cached --exit-code || git commit -m "Update game state"
-          git push
+          
+          if ! git diff --cached --quiet; then
+            git commit -m "Update game state"
+            
+            git pull --rebase
+            git push
+          else
+            echo "No changes to save."
+          fi
 
       - name: Comment with result
         if: github.event_name == 'issue_comment'
