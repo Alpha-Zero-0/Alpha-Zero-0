@@ -1,3 +1,8 @@
 {
-  "players": {}
+  "players": {
+    "Alpha-Zero-0": {
+      "losses": 1,
+      "wins": 0
+    }
+  }
 }

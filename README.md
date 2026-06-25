@@ -99,7 +99,7 @@ The leaderboard tracks the top 5 users who solved the most games and the top 5 u
 
 | Rank | Player | Losses | Wins |
 | ---: | --- | ---: | ---: |
-| - | No completed games yet | 0 | 0 |
+| 1 | @Alpha-Zero-0 | 1 | 0 |
 <!-- MINESWEEPER_LEADERBOARD_END -->
 
 Local commands from the repository root:
