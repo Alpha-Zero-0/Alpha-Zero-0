@@ -1,5 +1,8 @@
 # Hi, I'm David
 
+<img width="300" height="300" alt="giphy-3" src="https://github.com/user-attachments/assets/1458c328-3141-4e2e-ac82-9e8db3dcd919" />
+
+
 ### Programming Languages
 <div align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" />
@@ -46,9 +49,6 @@ Comment one of these commands on an issue:
 
 ```text
 new
-show
-help
-leaderboard
 reveal ROW COL
 reveal ROW COL ROW COL ...
 flag ROW COL
@@ -61,8 +61,6 @@ Examples:
 reveal 0 0 0 1 1 1
 flag 2 3 2 4 3 4
 ```
-
-Rows and columns are zero-indexed. The default board is 16x16 with 40 mines, so valid coordinates are `0` through `15`.
 
 Board symbols:
 
@@ -86,16 +84,20 @@ Rules:
 
 ### Leaderboard
 
-The leaderboard tracks the top 5 users who solved the most games and the top 5 users who hit the most mines.
-
 <!-- MINESWEEPER_LEADERBOARD_START -->
 ### Top Solvers
+
+<img width="250" height="250" alt="giphy-2" src="https://github.com/user-attachments/assets/e22173de-0b9f-46ec-b469-108d0cad82f7" />
+
 
 | Rank | Player | Wins | Losses |
 | ---: | --- | ---: | ---: |
 | - | No completed games yet | 0 | 0 |
 
 ### Most Exploded
+
+<img width="250" height="250" alt="giphy" src="https://github.com/user-attachments/assets/7736bb23-4202-45e1-80a9-924cb692a916" />
+
 
 | Rank | Player | Losses | Wins |
 | ---: | --- | ---: | ---: |
