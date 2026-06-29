@@ -1,6 +1,6 @@
 # Hi, I'm David
 
-<img width="350" height="350" alt="giphy-3" src="https://github.com/user-attachments/assets/1458c328-3141-4e2e-ac82-9e8db3dcd919" />
+<img width="340" height="340" alt="giphy-3" src="https://github.com/user-attachments/assets/1458c328-3141-4e2e-ac82-9e8db3dcd919" />
 
 
 ### Programming Languages
