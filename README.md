@@ -31,11 +31,21 @@
 </div>
 
 ## Github
-![GitHub Streak](https://streak-stats.demolab.com?user=Alpha-Zero-0&theme=radical)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Alpha-Zero-0&layout=compact&theme=radical)
-![GitHub Heat Map](https://ghchart.rshah.org/Alpha-Zero-0)
-![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Alpha-Zero-0&theme=react-dark)
-
+<div align="center">
+  <!-- Top Row: Streak and Languages -->
+  <img src="https://streak-stats.demolab.com?user=Alpha-Zero-0&theme=radical" alt="GitHub Streak" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Alpha-Zero-0&layout=compact&theme=radical" alt="Top Languages" />
+  
+  <br/><br/>
+  
+  <!-- Middle Row: Activity Graph (Wide) -->
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Alpha-Zero-0&theme=react-dark" alt="GitHub Activity Graph" width="100%" />
+  
+  <br/><br/>
+  
+  <!-- Bottom Row: Heat Map (Wide) -->
+  <img src="https://ghchart.rshah.org/Alpha-Zero-0" alt="GitHub Heat Map" width="100%" />
+</div>
 ## LEETCODE
 ![LeetCode Heatmap](https://leetcard.jacoblin.cool/HIHIHIHIA?theme=dark&ext=heatmap)
 
