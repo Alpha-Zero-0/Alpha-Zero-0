@@ -106,7 +106,7 @@ class Cell:
 class Minesweeper:
     """Direct translation of the JS Minesweeper game state and logic."""
 
-    def __init__(self, size: int = 16, total_bombs: Optional[int] = None):
+    def __init__(self, size: int = 9, total_bombs: Optional[int] = None):
         self.size = size
         self.width = size
         self.height = size
