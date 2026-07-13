@@ -44,7 +44,7 @@
   <br/><br/>
   
   <!-- Bottom Row: Heat Map (Wide) -->
-  <img src="https://ghchart.rshah.org/Alpha-Zero-0" alt="GitHub Heat Map" width="100%" />
+  <img src="https://ghchart.rshah.org/Alpha-Zero-0" alt="GitHub Heat Map" width="50%" />
 </div>
 
 
