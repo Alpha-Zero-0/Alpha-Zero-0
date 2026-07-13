@@ -101,17 +101,11 @@ Rules:
 <!-- MINESWEEPER_LEADERBOARD_START -->
 ### Top Solvers
 
-<img width="250" height="250" alt="giphy-2" src="https://github.com/user-attachments/assets/e22173de-0b9f-46ec-b469-108d0cad82f7" />
-
-
 | Rank | Player | Wins | Losses |
 | ---: | --- | ---: | ---: |
 | - | No completed games yet | 0 | 0 |
 
 ### Most Exploded
-
-<img width="250" height="250" alt="giphy" src="https://github.com/user-attachments/assets/7736bb23-4202-45e1-80a9-924cb692a916" />
-
 
 | Rank | Player | Losses | Wins |
 | ---: | --- | ---: | ---: |
