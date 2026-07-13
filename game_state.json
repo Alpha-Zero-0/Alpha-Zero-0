@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-13T22:30:08.942177",
+  "timestamp": "2026-07-13T22:31:56.760626",
   "game": {
     "size": 9,
     "width": 9,
@@ -7,14 +7,14 @@
     "total_bombs": 10,
     "mine_count": 10,
     "bombCount": 2,
-    "timeElapsed": 2,
-    "moves": 2,
+    "timeElapsed": 3,
+    "moves": 3,
     "adjBombs": null,
     "hitBomb": false,
-    "elapsedTime": 2,
+    "elapsedTime": 3,
     "timerId": null,
-    "winner": false,
-    "status": "active",
+    "winner": true,
+    "status": "won",
     "minesPlaced": true,
     "board": [
       [
@@ -85,7 +85,7 @@
           "row": 0,
           "col": 7,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 2,
           "adjacent_mines": 2
@@ -94,7 +94,7 @@
           "row": 0,
           "col": 8,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 1,
           "adjacent_mines": 1
@@ -603,7 +603,7 @@
           "row": 7,
           "col": 0,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 3,
           "adjacent_mines": 3
@@ -704,7 +704,7 @@
           "row": 8,
           "col": 2,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 3,
           "adjacent_mines": 3
