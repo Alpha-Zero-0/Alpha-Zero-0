@@ -49,7 +49,9 @@
 
 
 ## LEETCODE
-![LeetCode Heatmap](https://leetcard.jacoblin.cool/HIHIHIHIA?theme=dark&ext=heatmap)
+<div align="center">
+  <img src="https://leetcard.jacoblin.cool/HIHIHIHIA?username=Alpha-Zero-0&theme=dark&ext=heatmap" alt="LeetCode Heatmap" width="100%" />
+</div>
 
 ## Mini Game
 
