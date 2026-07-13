@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-13T22:27:00.962328",
+  "timestamp": "2026-07-13T22:28:48.068470",
   "game": {
     "size": 9,
     "width": 9,
@@ -7,11 +7,11 @@
     "total_bombs": 10,
     "mine_count": 10,
     "bombCount": 6,
-    "timeElapsed": 1,
-    "moves": 1,
+    "timeElapsed": 2,
+    "moves": 2,
     "adjBombs": null,
     "hitBomb": false,
-    "elapsedTime": 1,
+    "elapsedTime": 2,
     "timerId": null,
     "winner": false,
     "status": "active",
@@ -76,7 +76,7 @@
           "row": 0,
           "col": 6,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 1,
           "adjacent_mines": 1
@@ -168,7 +168,7 @@
           "row": 1,
           "col": 7,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 3,
           "adjacent_mines": 3
@@ -260,7 +260,7 @@
           "row": 2,
           "col": 8,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 2,
           "adjacent_mines": 2
@@ -343,7 +343,7 @@
           "row": 3,
           "col": 8,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 2,
           "adjacent_mines": 2
@@ -630,7 +630,7 @@
           "row": 7,
           "col": 3,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 2,
           "adjacent_mines": 2
@@ -639,7 +639,7 @@
           "row": 7,
           "col": 4,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 1,
           "adjacent_mines": 1
@@ -713,7 +713,7 @@
           "row": 8,
           "col": 3,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 1,
           "adjacent_mines": 1
@@ -722,7 +722,7 @@
           "row": 8,
           "col": 4,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 0,
           "adjacent_mines": 0
@@ -731,7 +731,7 @@
           "row": 8,
           "col": 5,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 0,
           "adjacent_mines": 0
@@ -740,7 +740,7 @@
           "row": 8,
           "col": 6,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 1,
           "adjacent_mines": 1
@@ -758,7 +758,7 @@
           "row": 8,
           "col": 8,
           "bomb": false,
-          "revealed": false,
+          "revealed": true,
           "flagged": false,
           "adjBombs": 1,
           "adjacent_mines": 1
