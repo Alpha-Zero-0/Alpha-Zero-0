@@ -44,13 +44,13 @@
   <br/><br/>
   
   <!-- Bottom Row: Heat Map (Wide) -->
-  <img src="https://ghchart.rshah.org/Alpha-Zero-0" alt="GitHub Heat Map" width="50%" />
+  <img src="https://ghchart.rshah.org/Alpha-Zero-0" alt="GitHub Heat Map" width="100%" />
 </div>
 
 
 ## LEETCODE
 <div align="center">
-  <img src="https://leetcard.jacoblin.cool/HIHIHIHIA?username=Alpha-Zero-0&theme=dark&ext=heatmap" alt="LeetCode Heatmap" width="100%" />
+  <img src="https://leetcard.jacoblin.cool/HIHIHIHIA?username=Alpha-Zero-0&theme=dark&ext=heatmap" alt="LeetCode Heatmap" width="50%" />
 </div>
 
 ## Mini Game
