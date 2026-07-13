@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-07-13T22:25:14.001254",
+  "timestamp": "2026-07-13T22:27:00.962328",
   "game": {
     "size": 9,
     "width": 9,
     "height": 9,
     "total_bombs": 10,
     "mine_count": 10,
-    "bombCount": 10,
+    "bombCount": 6,
     "timeElapsed": 1,
     "moves": 1,
     "adjBombs": null,
@@ -160,7 +160,7 @@
           "col": 6,
           "bomb": true,
           "revealed": false,
-          "flagged": false,
+          "flagged": true,
           "adjBombs": 1,
           "adjacent_mines": 1
         },
@@ -252,7 +252,7 @@
           "col": 7,
           "bomb": true,
           "revealed": false,
-          "flagged": false,
+          "flagged": true,
           "adjBombs": 2,
           "adjacent_mines": 2
         },
@@ -427,7 +427,7 @@
           "col": 8,
           "bomb": true,
           "revealed": false,
-          "flagged": false,
+          "flagged": true,
           "adjBombs": 0,
           "adjacent_mines": 0
         }
@@ -557,7 +557,7 @@
           "col": 4,
           "bomb": true,
           "revealed": false,
-          "flagged": false,
+          "flagged": true,
           "adjBombs": 0,
           "adjacent_mines": 0
         },
