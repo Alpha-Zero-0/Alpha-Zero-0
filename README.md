@@ -34,7 +34,7 @@
 <div align="center">
   <!-- Top Row: Streak and Languages -->
   <img src="https://streak-stats.demolab.com?user=Alpha-Zero-0&theme=radical" alt="GitHub Streak" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Alpha-Zero-0&layout=compact&theme=radical" alt="Top Languages" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Alpha-Zero-0&theme=radical" alt="Top Languages" />
   
   <br/><br/>
   
