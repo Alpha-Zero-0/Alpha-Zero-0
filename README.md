@@ -101,11 +101,15 @@ Rules:
 <!-- MINESWEEPER_LEADERBOARD_START -->
 ### Top Solvers
 
+<img width="250" height="280" alt="giphy-2" src="https://github.com/user-attachments/assets/67d7eab7-cf99-493f-af40-2d012a8f66ae" />
+
 | Rank | Player | Wins | Losses |
 | ---: | --- | ---: | ---: |
 | 1 | @Alpha-Zero-0 | 1 | 1 |
 
 ### Most Exploded
+
+<img width="480" height="480" alt="giphy" src="https://github.com/user-attachments/assets/7959a7f3-ebbb-4cac-88a7-b14a36455bf6" />
 
 | Rank | Player | Losses | Wins |
 | ---: | --- | ---: | ---: |
