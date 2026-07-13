@@ -1,7 +1,7 @@
 # Hi, I'm David
-
-<img width="345" height="340" alt="giphy-3" src="https://github.com/user-attachments/assets/1458c328-3141-4e2e-ac82-9e8db3dcd919" />
-
+<div align="center">
+  <img width="345" height="340" alt="giphy-3" src="https://github.com/user-attachments/assets/1458c328-3141-4e2e-ac82-9e8db3dcd919" />
+</div>
 
 ### Programming Languages
 <div align="center">
