@@ -37,7 +37,6 @@
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Alpha-Zero-0&theme=radical" alt="Top Languages" />
   <img src="https://metrics.lecoq.io/Alpha-Zero-0?template=classic&base=0&plugin_languages=yes&plugin_languages_limit=5" alt="Top Languages" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Alpha-Zero-0&layout=donut&theme=radical" alt="Top Languages" />
-  <img src="https://skillicons.dev/icons?i=py,html,css,js,git&theme=dark" alt="My Skills" />
   
   <br/><br/>
   
