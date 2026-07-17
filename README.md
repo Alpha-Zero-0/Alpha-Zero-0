@@ -84,8 +84,8 @@ Board symbols:
 
 | Symbol | Meaning |
 | --- | --- |
-| `■` | Hidden cell |
-| `F` | Flagged cell |
+| `□` | Hidden cell |
+| `⚑` | Flagged cell |
 | `X` | Incorrect flag after game over |
 | `*` | Mine after game over |
 | blank | Revealed cell with no adjacent mines |
@@ -93,10 +93,9 @@ Board symbols:
 
 Rules:
 
+- Flag all the hidden mines based on the safe squares and their numbers.
 - The first reveal is always safe, including the surrounding 3x3 area when possible.
 - Blank cells flood-reveal connected blank cells and their bordering numbers.
-- Revealing a mine ends the game and records a leaderboard loss for the player who triggered it.
-- Revealing every non-mine cell wins the game and records a leaderboard win for the player who solved it.
 - Batch reveal and flag commands are validated before the board changes.
 - A batch reveal is applied from left to right and stops if the game is won or a mine is hit.
 
