@@ -107,13 +107,13 @@ Rules:
 
 | Rank | Player | Wins | Losses |
 | ---: | --- | ---: | ---: |
-| 1 | @Alpha-Zero-0 | 1 | 1 |
+| 1 | @Alpha-Zero-0 | 1 | 2 |
 
 ### Most Exploded
 
 | Rank | Player | Losses | Wins |
 | ---: | --- | ---: | ---: |
-| 1 | @Alpha-Zero-0 | 1 | 1 |
+| 1 | @Alpha-Zero-0 | 2 | 1 |
 <!-- MINESWEEPER_LEADERBOARD_END -->
 
 Local commands from the repository root:
