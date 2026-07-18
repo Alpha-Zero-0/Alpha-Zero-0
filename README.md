@@ -82,7 +82,7 @@ flag 2 3 2 4 3 4
 
 Rules:
 
-- Flag all the hidden mines based on the safe squares and their numbers - the number on a safe square represents the number of mines in its 8 surrounding squares.
+- Flag all the hidden mines or reveal all safe squares based on the known safe squares' numbers - the number on a safe square represents the number of mines in its 8 surrounding squares.
 - The first reveal is always safe, including the surrounding 3x3 area when possible.
 - Blank cells flood-reveal connected blank cells and their bordering numbers.
 - Batch reveal and flag commands are validated before the board changes.
