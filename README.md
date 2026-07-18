@@ -98,7 +98,7 @@ Board symbols:
 | blank | Revealed cell with no adjacent mines |
 | `1`-`8` | Number of adjacent mines |
 
-
+<!-- MINESWEEPER_LEADERBOARD_START -->
 ### Leaderboard
 
 ### Top Solvers
@@ -121,3 +121,5 @@ Board symbols:
 | Rank | Player | Losses | Wins |
 | ---: | --- | ---: | ---: |
 | 1 | @Alpha-Zero-0 | 2 | 1 |
+<!-- MINESWEEPER_LEADERBOARD_END -->
+
