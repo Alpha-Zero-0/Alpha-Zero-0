@@ -99,8 +99,6 @@ Board symbols:
 | `1`-`8` | Number of adjacent mines |
 
 <!-- MINESWEEPER_LEADERBOARD_START -->
-### Leaderboard
-
 ### Top Solvers
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
@@ -116,7 +114,6 @@ Board symbols:
 <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
   <img width="250" height="250" alt="giphy-4" src="https://github.com/user-attachments/assets/ef4a2e7c-5a89-4ca5-b8bb-6624be5e0f35" />
 </div>
-
 
 | Rank | Player | Losses | Wins |
 | ---: | --- | ---: | ---: |
