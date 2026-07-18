@@ -101,8 +101,9 @@ Board symbols:
 
 ### Leaderboard
 
-<!-- MINESWEEPER_LEADERBOARD_START -->
 ### Top Solvers
+
+<img width="250" height="250" alt="giphy" src="https://github.com/user-attachments/assets/42f586ce-99fa-4d1a-82a0-466d5ff0bc01" />
 
 | Rank | Player | Wins | Losses |
 | ---: | --- | ---: | ---: |
@@ -110,17 +111,8 @@ Board symbols:
 
 ### Most Exploded
 
+<img width="250" height="250" alt="giphy-2" src="https://github.com/user-attachments/assets/79ed7122-d568-415f-84cd-71253935923d" />
+
 | Rank | Player | Losses | Wins |
 | ---: | --- | ---: | ---: |
 | 1 | @Alpha-Zero-0 | 2 | 1 |
-<!-- MINESWEEPER_LEADERBOARD_END -->
-
-Local commands from the repository root:
-
-```bash
-python -m minesweeper.cli new --state-file game_state.json
-python -m minesweeper.cli reveal 0 0 --state-file game_state.json
-python -m minesweeper.cli reveal 0 1 1 1 --state-file game_state.json
-python -m minesweeper.cli flag 2 3 2 4 --state-file game_state.json
-python -m minesweeper.cli leaderboard --leaderboard-file minesweeper_leaderboard.json
-```
