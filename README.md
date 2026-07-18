@@ -33,7 +33,7 @@
 ## Github
 <div align="center">
   <!-- Top Row: Streak and Languages -->
-  <img src="https://streak-stats.demolab.com?user=Alpha-Zero-0&theme=radical" alt="GitHub Streak" />
+  <img src="https://streak-stats.demolab.com?user=Alpha-Zero-0&theme=radical&ignore=1" alt="GitHub Streak" />
 
   
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Alpha-Zero-0&theme=radical" alt="Top Languages" />
