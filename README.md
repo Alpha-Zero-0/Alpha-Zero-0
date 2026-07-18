@@ -107,7 +107,7 @@ Board symbols:
 
 | Rank | Player | Wins | Losses |
 | ---: | --- | ---: | ---: |
-| 1 | @Alpha-Zero-0 | 1 | 2 |
+| 1 | @Alpha-Zero-0 | 1 | 3 |
 
 ### Most Exploded
 
@@ -117,6 +117,6 @@ Board symbols:
 
 | Rank | Player | Losses | Wins |
 | ---: | --- | ---: | ---: |
-| 1 | @Alpha-Zero-0 | 2 | 1 |
+| 1 | @Alpha-Zero-0 | 3 | 1 |
 <!-- MINESWEEPER_LEADERBOARD_END -->
 
