@@ -103,7 +103,9 @@ Board symbols:
 
 ### Top Solvers
 
-<img width="250" height="250" alt="giphy" src="https://github.com/user-attachments/assets/42f586ce-99fa-4d1a-82a0-466d5ff0bc01" />
+<div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+  <img width="250" height="250" alt="giphy-2" src="https://github.com/user-attachments/assets/79ed7122-d568-415f-84cd-71253935923d" />
+</div>
 
 | Rank | Player | Wins | Losses |
 | ---: | --- | ---: | ---: |
@@ -111,7 +113,10 @@ Board symbols:
 
 ### Most Exploded
 
-<img width="250" height="250" alt="giphy-2" src="https://github.com/user-attachments/assets/79ed7122-d568-415f-84cd-71253935923d" />
+<div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+  <img width="250" height="250" alt="giphy-4" src="https://github.com/user-attachments/assets/ef4a2e7c-5a89-4ca5-b8bb-6624be5e0f35" />
+</div>
+
 
 | Rank | Player | Losses | Wins |
 | ---: | --- | ---: | ---: |
