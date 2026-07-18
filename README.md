@@ -80,6 +80,13 @@ reveal 0 0 0 1 1 1
 flag 2 3 2 4 3 4
 ```
 
+Rules:
+
+- Flag all the hidden mines based on the safe squares and their numbers - the number on a safe square represents the number of mines in its 8 surrounding squares.
+- The first reveal is always safe, including the surrounding 3x3 area when possible.
+- Blank cells flood-reveal connected blank cells and their bordering numbers.
+- Batch reveal and flag commands are validated before the board changes.
+
 Board symbols:
 
 | Symbol | Meaning |
@@ -91,13 +98,6 @@ Board symbols:
 | blank | Revealed cell with no adjacent mines |
 | `1`-`8` | Number of adjacent mines |
 
-Rules:
-
-- Flag all the hidden mines based on the safe squares and their numbers.
-- The first reveal is always safe, including the surrounding 3x3 area when possible.
-- Blank cells flood-reveal connected blank cells and their bordering numbers.
-- Batch reveal and flag commands are validated before the board changes.
-- A batch reveal is applied from left to right and stops if the game is won or a mine is hit.
 
 ### Leaderboard
 
